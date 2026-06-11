@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Leads Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f2ed;
+    color: #1a1a1a;
+    padding: 24px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  header h1 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+
+  #last-updated {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 24px 0 10px;
+  }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .kpi-card {
+    background: #fff;
+    border: 0.5px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 14px 16px 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kpi-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 2px;
+  }
+
+  .kpi-value {
+    font-size: 26px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 4px 0 8px;
+  }
+
+  .kpi-sparkline {
+    position: relative;
+    height: 40px;
+    width: 100%;
+  }
+
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    margin-top: 0;
+  }
+
+  .chart-card {
+    background: #fff;
+    border: 0.5px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+
+  .chart-card h3 {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 14px;
+  }
+
+  .chart-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+  }
+
+  #error-msg {
+    display: none;
+    background: #fff3f3;
+    border: 0.5px solid #f0b0b0;
+    border-radius: 10px;
+    padding: 16px;
+    color: #a33;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Leads Dashboard</h1>
+  <span id="last-updated">Loading...</span>
+</header>
+
+<div id="error-msg"></div>
+
+<div class="section-label">Volume</div>
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Total Leads</div>
+    <div class="kpi-value" id="total-leads">—</div>
+    <div class="kpi-sparkline"><canvas id="spark-total" role="img" aria-label="Total leads trend"></canvas></div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Yesterday</div>
+    <div class="kpi-value" id="yesterday-leads">—</div>
+    <div class="kpi-sparkline"><canvas id="spark-yest" role="img" aria-label="Yesterday leads trend"></canvas></div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Week to Date</div>
+    <div class="kpi-value" id="wtd-leads">—</div>
+    <div class="kpi-sparkline"><canvas id="spark-wtd" role="img" aria-label="Week to date leads trend"></canvas></div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Month to Date</div>
+    <div class="kpi-value" id="mtd-leads">—</div>
+    <div class="kpi-sparkline"><canvas id="spark-mtd" role="img" aria-label="Month to date leads trend"></canvas></div>
+  </div>
+</div>
+
+<div class="section-label">Breakdown</div>
+<div class="chart-grid">
+  <div class="chart-card">
+    <h3>Leads by Source</h3>
+    <div class="chart-wrap">
+      <canvas id="chart-source" role="img" aria-label="Bar chart of leads by source"></canvas>
+    </div>
+  </div>
+  <div class="chart-card">
+    <h3>Leads by Status</h3>
+    <div class="chart-wrap">
+      <canvas id="chart-status" role="img" aria-label="Bar chart of leads by status"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+const GREEN      = '#1D9E75';
+const GREEN_BG   = 'rgba(29,158,117,0.12)';
+const BLUE       = '#378ADD';
+const BLUE_LIGHT = 'rgba(55,138,221,0.15)';
+const CORAL      = '#D85A30';
+const CORAL_BG   = 'rgba(216,90,48,0.12)';
+
+function fmt(n) {
+  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+  if (n >= 1000)    return (n / 1000).toFixed(1) + 'K';
+  return n.toString();
+}
+
+function sparkline(canvasId, data, color, bgColor) {
+  new Chart(document.getElementById(canvasId), {
+    type: 'line',
+    data: {
+      labels: data.map((_, i) => i),
+      datasets: [{
+        data,
+        borderColor: color,
+        borderWidth: 1.5,
+        pointRadius: 0,
+        fill: true,
+        backgroundColor: bgColor,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales:  { x: { display: false }, y: { display: false } },
+      animation: false
+    }
+  });
+}
+
+function barChart(canvasId, labels, values, color, bgColor) {
+  const n = labels.length;
+  const height = Math.max(220, n * 38 + 40);
+  const wrap = document.getElementById(canvasId).parentElement;
+  wrap.style.height = height + 'px';
+
+  new Chart(document.getElementById(canvasId), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        data: values,
+        backgroundColor: bgColor,
+        borderColor: color,
+        borderWidth: 1.5,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ' ' + ctx.parsed.x.toLocaleString() + ' leads'
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(0,0,0,0.05)' },
+          ticks: { font: { size: 11 }, color: '#999' }
+        },
+        y: {
+          grid: { display: false },
+          ticks: { font: { size: 12 }, color: '#444' }
+        }
+      }
+    }
+  });
+}
+
+async function loadDashboard() {
+  try {
+    const res  = await fetch('data.json');
+    if (!res.ok) throw new Error(`Could not load data.json (${res.status})`);
+    const data = await res.json();
+
+    document.getElementById('last-updated').textContent =
+      'Last updated: ' + data.last_updated;
+
+    document.getElementById('total-leads').textContent     = fmt(data.total_leads);
+    document.getElementById('yesterday-leads').textContent = fmt(data.yesterday_leads);
+    document.getElementById('wtd-leads').textContent       = fmt(data.wtd_leads);
+    document.getElementById('mtd-leads').textContent       = fmt(data.mtd_leads);
+
+    const spark = data.sparkline_30d || [];
+
+    sparkline('spark-total', spark,                        GREEN,  GREEN_BG);
+    sparkline('spark-yest',  spark.slice(-7),              GREEN,  GREEN_BG);
+    sparkline('spark-wtd',   spark.slice(-7),              GREEN,  GREEN_BG);
+    sparkline('spark-mtd',   spark,                        GREEN,  GREEN_BG);
+
+    const sourceEntries = Object.entries(data.by_source || {})
+      .sort((a, b) => b[1] - a[1]);
+    barChart(
+      'chart-source',
+      sourceEntries.map(e => e[0]),
+      sourceEntries.map(e => e[1]),
+      BLUE, BLUE_LIGHT
+    );
+
+    const statusEntries = Object.entries(data.by_status || {})
+      .sort((a, b) => b[1] - a[1]);
+    barChart(
+      'chart-status',
+      statusEntries.map(e => e[0]),
+      statusEntries.map(e => e[1]),
+      CORAL, CORAL_BG
+    );
+
+  } catch (err) {
+    const el = document.getElementById('error-msg');
+    el.style.display = 'block';
+    el.textContent   = 'Error loading dashboard data: ' + err.message;
+    console.error(err);
+  }
+}
+
+loadDashboard();
+</script>
+</body>
+</html>
