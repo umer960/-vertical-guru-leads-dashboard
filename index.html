@@ -34,14 +34,13 @@
   .apply-btn:hover { background: #7c74ff; }
 
   .section-label { font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #555b72; flex-shrink: 0; }
-
   .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; flex-shrink: 0; }
   .kpi-card { background: #161820; border: 0.5px solid #2a2d3a; border-radius: 10px; padding: 9px 12px 7px; position: relative; overflow: hidden; }
   .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: 10px 10px 0 0; }
   .kpi-card.purple::before { background: #6c63ff; }
   .kpi-card.teal::before   { background: #3ecfcf; }
   .kpi-label { font-size: 11px; font-weight: 500; color: #888; margin-bottom: 3px; }
-  .kpi-badge { font-size: 9px; color: #555b72; margin-left: 5px; font-style: italic; }
+  .kpi-sublabel { font-size: 9px; color: #555b72; margin-bottom: 3px; font-style: italic; }
   .kpi-value { font-size: 22px; font-weight: 600; color: #fff; line-height: 1; margin-bottom: 6px; }
   .kpi-sparkline { position: relative; height: 30px; }
 
@@ -49,7 +48,6 @@
   .chart-card { background: #161820; border: 0.5px solid #2a2d3a; border-radius: 10px; padding: 11px 13px; display: flex; flex-direction: column; min-height: 0; }
   .chart-card h3 { font-size: 11px; font-weight: 500; color: #888; margin-bottom: 8px; flex-shrink: 0; }
   .chart-wrap { position: relative; flex: 1; min-height: 0; }
-
   #error-msg { display: none; background: rgba(216,90,48,0.1); border: 0.5px solid rgba(216,90,48,0.3); border-radius: 8px; padding: 10px 14px; color: #f0856a; font-size: 12px; flex-shrink: 0; }
 </style>
 </head>
@@ -77,11 +75,11 @@
     <label>To</label>
     <input type="date" id="date-to"/>
     <div class="preset-btns">
-      <button class="preset-btn" data-days="1">Yesterday</button>
-      <button class="preset-btn" data-days="7">7 days</button>
-      <button class="preset-btn active" data-days="30">30 days</button>
-      <button class="preset-btn" data-days="90">90 days</button>
-      <button class="preset-btn" data-days="0">All time</button>
+      <button class="preset-btn" data-preset="yesterday">Yesterday</button>
+      <button class="preset-btn" data-preset="7">7 days</button>
+      <button class="preset-btn active" data-preset="30">30 days</button>
+      <button class="preset-btn" data-preset="90">90 days</button>
+      <button class="preset-btn" data-preset="all">All time</button>
     </div>
     <button class="apply-btn" onclick="applyFilter()">Apply</button>
   </div>
@@ -92,24 +90,28 @@
 
   <div class="kpi-grid">
     <div class="kpi-card purple">
-      <div class="kpi-label">Total Leads <span class="kpi-badge" id="range-label"></span></div>
+      <div class="kpi-label">Total Leads</div>
+      <div class="kpi-sublabel" id="range-label">—</div>
       <div class="kpi-value" id="v-total">—</div>
-      <div class="kpi-sparkline"><canvas id="sp1" role="img" aria-label="Total leads sparkline"></canvas></div>
+      <div class="kpi-sparkline"><canvas id="sp1"></canvas></div>
     </div>
     <div class="kpi-card teal">
       <div class="kpi-label">Yesterday</div>
+      <div class="kpi-sublabel">fixed period</div>
       <div class="kpi-value" id="v-yest">—</div>
-      <div class="kpi-sparkline"><canvas id="sp2" role="img" aria-label="Yesterday sparkline"></canvas></div>
+      <div class="kpi-sparkline"><canvas id="sp2"></canvas></div>
     </div>
     <div class="kpi-card purple">
       <div class="kpi-label">Week to Date</div>
+      <div class="kpi-sublabel">fixed period</div>
       <div class="kpi-value" id="v-wtd">—</div>
-      <div class="kpi-sparkline"><canvas id="sp3" role="img" aria-label="WTD sparkline"></canvas></div>
+      <div class="kpi-sparkline"><canvas id="sp3"></canvas></div>
     </div>
     <div class="kpi-card teal">
       <div class="kpi-label">Month to Date</div>
+      <div class="kpi-sublabel">fixed period</div>
       <div class="kpi-value" id="v-mtd">—</div>
-      <div class="kpi-sparkline"><canvas id="sp4" role="img" aria-label="MTD sparkline"></canvas></div>
+      <div class="kpi-sparkline"><canvas id="sp4"></canvas></div>
     </div>
   </div>
 
@@ -118,11 +120,11 @@
   <div class="charts-row">
     <div class="chart-card">
       <h3>Top 10 Leads by Source</h3>
-      <div class="chart-wrap"><canvas id="ch-src" role="img" aria-label="Leads by source"></canvas></div>
+      <div class="chart-wrap"><canvas id="ch-src"></canvas></div>
     </div>
     <div class="chart-card">
       <h3>Leads by Status</h3>
-      <div class="chart-wrap"><canvas id="ch-sta" role="img" aria-label="Leads by status"></canvas></div>
+      <div class="chart-wrap"><canvas id="ch-sta"></canvas></div>
     </div>
   </div>
 
@@ -130,27 +132,54 @@
 <script>
 const PURPLE='#6c63ff', TEAL='#3ecfcf';
 const PBG='rgba(108,99,255,0.18)', TBG='rgba(62,207,207,0.18)';
-let RAW_DATA = null;
+let RAW_DATA = [];  // full leads array from data.json
 let STATIC   = null;
 
+// ── date helpers ──────────────────────────────────────────
 function fmt(n){ if(n==null)return'—'; if(n>=1e6)return(n/1e6).toFixed(1)+'M'; if(n>=1000)return(n/1000).toFixed(1)+'K'; return Math.round(n).toLocaleString(); }
-function todayStr(){ return new Date().toISOString().split('T')[0]; }
-function daysAgoStr(n){ const d=new Date(); d.setDate(d.getDate()-n); return d.toISOString().split('T')[0]; }
-function toMidnight(str){ return new Date(str+'T00:00:00'); }
 
-function setPreset(days){
-  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
-  const btn=document.querySelector(`.preset-btn[data-days="${days}"]`);
-  if(btn) btn.classList.add('active');
-  const to=todayStr();
-  const from = days===0 ? '2000-01-01' : days===1 ? daysAgoStr(1) : daysAgoStr(days-1);
-  document.getElementById('date-from').value=from;
-  document.getElementById('date-to').value=to;
+// Returns "YYYY-MM-DD" string in LOCAL time for a Date object
+function localDate(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+
+function todayStr(){ return localDate(new Date()); }
+
+function daysAgoStr(n){
+  const d = new Date();
+  d.setDate(d.getDate() - n);
+  return localDate(d);
 }
 
+// Parse a lead's created_time to a "YYYY-MM-DD" local date string
+// Zoho timestamps look like "2026-06-12T10:30:00+00:00"
+function leadDateStr(isoStr){
+  if(!isoStr) return null;
+  // Just take the date part — Zoho stores in UTC; treat as-is
+  return isoStr.substring(0, 10);
+}
+
+function setPreset(preset){
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.preset-btn[data-preset="${preset}"]`).classList.add('active');
+  const today = todayStr();
+  let from;
+  if(preset === 'yesterday'){
+    from = daysAgoStr(1);
+    document.getElementById('date-from').value = from;
+    document.getElementById('date-to').value   = from;   // from=to=yesterday
+  } else if(preset === 'all'){
+    document.getElementById('date-from').value = '2000-01-01';
+    document.getElementById('date-to').value   = today;
+  } else {
+    const n = parseInt(preset);
+    document.getElementById('date-from').value = daysAgoStr(n - 1);
+    document.getElementById('date-to').value   = today;
+  }
+}
+
+// ── chart helpers ─────────────────────────────────────────
 function spark(id, data, color, bg){
-  const ex=Chart.getChart(id); if(ex) ex.destroy();
-  if(!data||!data.length) return;
+  const ex = Chart.getChart(id); if(ex) ex.destroy();
+  if(!data || !data.length) return;
   new Chart(document.getElementById(id),{
     type:'line',
     data:{labels:data.map((_,i)=>i),datasets:[{data,borderColor:color,borderWidth:1.5,pointRadius:0,fill:true,backgroundColor:bg,tension:0.4}]},
@@ -159,8 +188,8 @@ function spark(id, data, color, bg){
 }
 
 function bar(id, labels, values, color, bg){
-  const ex=Chart.getChart(id); if(ex) ex.destroy();
-  if(!labels||!labels.length) return;
+  const ex = Chart.getChart(id); if(ex) ex.destroy();
+  if(!labels || !labels.length) return;
   new Chart(document.getElementById(id),{
     type:'bar',
     data:{labels,datasets:[{data:values,backgroundColor:bg,borderColor:color,borderWidth:1,borderRadius:3}]},
@@ -172,74 +201,64 @@ function bar(id, labels, values, color, bg){
   });
 }
 
+// ── core filter + render ──────────────────────────────────
 function applyFilter(){
-  const from = document.getElementById('date-from').value;
-  const to   = document.getElementById('date-to').value;
-  if(!from||!to) return;
+  const from = document.getElementById('date-from').value;  // "YYYY-MM-DD"
+  const to   = document.getElementById('date-to').value;    // "YYYY-MM-DD"
+  if(!from || !to){ return; }
 
-  // --- Total Leads card: filtered by date range ---
-  let filteredLeads = RAW_DATA || [];
-  if(filteredLeads.length){
-    const fromD = toMidnight(from);
-    const toD   = toMidnight(to); toD.setHours(23,59,59);
-    filteredLeads = filteredLeads.filter(l => {
-      if(!l.created_time) return false;
-      const d = new Date(l.created_time);
-      return d >= fromD && d <= toD;
-    });
-  }
+  // Filter leads: simple string comparison on YYYY-MM-DD — no timezone confusion
+  const filtered = RAW_DATA.filter(l => {
+    const ds = leadDateStr(l.created_time);
+    if(!ds) return false;
+    return ds >= from && ds <= to;
+  });
 
-  // Total leads in range
-  const totalInRange = filteredLeads.length || (STATIC ? STATIC.total_leads : 0);
-  document.getElementById('v-total').textContent = fmt(totalInRange);
+  // Update Total Leads card
+  document.getElementById('v-total').textContent = fmt(filtered.length);
+  document.getElementById('range-label').textContent = from === to ? from : from + ' → ' + to;
 
-  // Range label on card
-  document.getElementById('range-label').textContent = from===to ? from : from+' → '+to;
-
-  // Sparkline for filtered range
-  const days = Math.max(1, Math.ceil((toMidnight(to)-toMidnight(from))/86400000)+1);
-  const sparkArr = Array.from({length:days},(_,i)=>{
-    const d=new Date(toMidnight(from)); d.setDate(d.getDate()+i);
-    const ds=d.toISOString().split('T')[0];
-    return filteredLeads.filter(l=>l.created_time&&l.created_time.startsWith(ds)).length;
+  // Sparkline: one point per day in range
+  const msPerDay = 86400000;
+  const fromMs   = new Date(from + 'T00:00:00').getTime();
+  const toMs     = new Date(to   + 'T00:00:00').getTime();
+  const numDays  = Math.round((toMs - fromMs) / msPerDay) + 1;
+  const sparkArr = Array.from({length: numDays}, (_, i) => {
+    const ds = localDate(new Date(fromMs + i * msPerDay));
+    return filtered.filter(l => leadDateStr(l.created_time) === ds).length;
   });
   spark('sp1', sparkArr, PURPLE, PBG);
 
-  // Charts: also filtered
-  if(filteredLeads.length){
-    const srcCount={}, staCount={};
-    filteredLeads.forEach(l=>{
-      const s=l.lead_source||'Unknown'; srcCount[s]=(srcCount[s]||0)+1;
-      const t=l.lead_status||'Unknown'; staCount[t]=(staCount[t]||0)+1;
-    });
-    const src=Object.entries(srcCount).sort((a,b)=>b[1]-a[1]).slice(0,10);
-    const sta=Object.entries(staCount).sort((a,b)=>b[1]-a[1]);
-    bar('ch-src', src.map(e=>e[0]), src.map(e=>e[1]), TEAL, TBG);
-    bar('ch-sta', sta.map(e=>e[0]), sta.map(e=>e[1]), PURPLE, PBG);
-  } else if(STATIC) {
-    const src=Object.entries(STATIC.by_source||{}).sort((a,b)=>b[1]-a[1]).slice(0,10);
-    const sta=Object.entries(STATIC.by_status||{}).sort((a,b)=>b[1]-a[1]);
-    bar('ch-src', src.map(e=>e[0]), src.map(e=>e[1]), TEAL, TBG);
-    bar('ch-sta', sta.map(e=>e[0]), sta.map(e=>e[1]), PURPLE, PBG);
-  }
+  // Charts
+  const srcCount = {}, staCount = {};
+  filtered.forEach(l => {
+    const s = l.lead_source || 'Unknown'; srcCount[s] = (srcCount[s]||0) + 1;
+    const t = l.lead_status || 'Unknown'; staCount[t] = (staCount[t]||0) + 1;
+  });
+  const src = Object.entries(srcCount).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  const sta = Object.entries(staCount).sort((a,b)=>b[1]-a[1]);
+  bar('ch-src', src.map(e=>e[0]), src.map(e=>e[1]), TEAL,   TBG);
+  bar('ch-sta', sta.map(e=>e[0]), sta.map(e=>e[1]), PURPLE, PBG);
 }
 
-document.querySelectorAll('.preset-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{ setPreset(parseInt(btn.dataset.days)); });
+// ── preset buttons ────────────────────────────────────────
+document.querySelectorAll('.preset-btn').forEach(btn => {
+  btn.addEventListener('click', () => setPreset(btn.dataset.preset));
 });
 
+// ── load data.json ────────────────────────────────────────
 async function load(){
   try{
     const res = await fetch('data.json');
     if(!res.ok) throw new Error('Could not load data.json ('+res.status+')');
     const d = await res.json();
 
-    document.getElementById('last-updated').textContent = 'Updated: '+d.last_updated;
+    document.getElementById('last-updated').textContent = 'Updated: ' + d.last_updated;
 
     STATIC   = d;
-    RAW_DATA = d.leads || [];
+    RAW_DATA = Array.isArray(d.leads) ? d.leads : [];
 
-    // --- Fixed KPIs: always show real period values regardless of filter ---
+    // Fixed KPI cards — always real period values
     document.getElementById('v-yest').textContent = fmt(d.yesterday_leads);
     document.getElementById('v-wtd').textContent  = fmt(d.wtd_leads);
     document.getElementById('v-mtd').textContent  = fmt(d.mtd_leads);
@@ -249,18 +268,30 @@ async function load(){
     spark('sp3', sp.slice(-7),  PURPLE, PBG);
     spark('sp4', sp,            TEAL,   TBG);
 
-    // Apply default filter (30 days)
-    setPreset(30);
-    applyFilter();
+    if(RAW_DATA.length === 0){
+      // No raw leads — fall back to static totals
+      document.getElementById('v-total').textContent = fmt(d.total_leads);
+      document.getElementById('range-label').textContent = 'all time';
+      spark('sp1', sp, PURPLE, PBG);
+      const src = Object.entries(d.by_source||{}).sort((a,b)=>b[1]-a[1]).slice(0,10);
+      const sta = Object.entries(d.by_status||{}).sort((a,b)=>b[1]-a[1]);
+      bar('ch-src', src.map(e=>e[0]), src.map(e=>e[1]), TEAL,   TBG);
+      bar('ch-sta', sta.map(e=>e[0]), sta.map(e=>e[1]), PURPLE, PBG);
+      document.getElementById('range-label').textContent = '⚠ run workflow to enable filtering';
+    } else {
+      // Apply default 30-day filter
+      setPreset('30');
+      applyFilter();
+    }
 
   } catch(err){
-    const el=document.getElementById('error-msg');
-    el.style.display='block';
-    el.textContent='Error loading data: '+err.message;
+    const el = document.getElementById('error-msg');
+    el.style.display = 'block';
+    el.textContent   = 'Error loading data: ' + err.message;
   }
 }
 
-setPreset(30);
+setPreset('30');
 load();
 </script>
 </body>
