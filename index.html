@@ -1,305 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Leads Dashboard</title>
+<title>Vertical Guru — Leads Dashboard</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
+  html, body {
+    height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f4f2ed;
-    color: #1a1a1a;
-    padding: 24px;
+    background: #0e0f14;
+    color: #e2e4ed;
+    overflow: hidden;
   }
 
-  header {
+  .app {
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-  }
-
-  header h1 {
-    font-size: 18px;
-    font-weight: 500;
-    color: #1a1a1a;
-  }
-
-  #last-updated {
-    font-size: 12px;
-    color: #888;
-  }
-
-  .section-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #888;
-    margin: 24px 0 10px;
-  }
-
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    flex-direction: column;
+    padding: 14px 20px 10px;
     gap: 10px;
   }
 
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6c63ff, #3ecfcf);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .brand-name {
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
+
+  .brand-sub {
+    font-size: 11px;
+    color: #555b72;
+    margin-top: 1px;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .live-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: #3ecfcf;
+  }
+
+  .live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #3ecfcf;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  #last-updated {
+    font-size: 11px;
+    color: #555b72;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555b72;
+    flex-shrink: 0;
+  }
+
+  /* KPI GRID */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
   .kpi-card {
-    background: #fff;
-    border: 0.5px solid rgba(0,0,0,0.1);
-    border-radius: 12px;
-    padding: 14px 16px 10px;
+    background: #161820;
+    border: 0.5px solid #2a2d3a;
+    border-radius: 10px;
+    padding: 10px 12px 8px;
     position: relative;
     overflow: hidden;
   }
 
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6c63ff, #3ecfcf);
+    border-radius: 10px 10px 0 0;
+  }
+
   .kpi-label {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: #999;
-    margin-bottom: 2px;
+    color: #555b72;
+    margin-bottom: 4px;
   }
 
   .kpi-value {
-    font-size: 26px;
-    font-weight: 500;
-    color: #1a1a1a;
-    margin: 4px 0 8px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
   }
 
   .kpi-sparkline {
     position: relative;
-    height: 40px;
-    width: 100%;
+    height: 32px;
   }
 
-  .chart-grid {
+  /* CHARTS ROW */
+  .charts-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-    margin-top: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    flex: 1;
+    min-height: 0;
   }
 
   .chart-card {
-    background: #fff;
-    border: 0.5px solid rgba(0,0,0,0.1);
-    border-radius: 12px;
-    padding: 16px 18px;
+    background: #161820;
+    border: 0.5px solid #2a2d3a;
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
   }
 
   .chart-card h3 {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #999;
-    margin-bottom: 14px;
+    color: #555b72;
+    margin-bottom: 8px;
+    flex-shrink: 0;
   }
 
   .chart-wrap {
     position: relative;
-    width: 100%;
-    height: 220px;
+    flex: 1;
+    min-height: 0;
   }
 
   #error-msg {
     display: none;
-    background: #fff3f3;
-    border: 0.5px solid #f0b0b0;
-    border-radius: 10px;
-    padding: 16px;
-    color: #a33;
-    font-size: 13px;
-    margin-bottom: 16px;
+    background: rgba(216,90,48,0.1);
+    border: 0.5px solid rgba(216,90,48,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #f0856a;
+    font-size: 12px;
   }
 </style>
 </head>
 <body>
+<div class="app">
 
-<header>
-  <h1>Leads Dashboard</h1>
-  <span id="last-updated">Loading...</span>
-</header>
+  <header>
+    <div class="brand">
+      <div class="brand-icon">VG</div>
+      <div>
+        <div class="brand-name">Vertical Guru</div>
+        <div class="brand-sub">Leads Dashboard</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="live-badge"><div class="live-dot"></div> Live</div>
+      <div id="last-updated">Loading...</div>
+    </div>
+  </header>
 
-<div id="error-msg"></div>
+  <div id="error-msg"></div>
 
-<div class="section-label">Volume</div>
-<div class="kpi-grid">
-  <div class="kpi-card">
-    <div class="kpi-label">Total Leads</div>
-    <div class="kpi-value" id="total-leads">—</div>
-    <div class="kpi-sparkline"><canvas id="spark-total" role="img" aria-label="Total leads trend"></canvas></div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-label">Yesterday</div>
-    <div class="kpi-value" id="yesterday-leads">—</div>
-    <div class="kpi-sparkline"><canvas id="spark-yest" role="img" aria-label="Yesterday leads trend"></canvas></div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-label">Week to Date</div>
-    <div class="kpi-value" id="wtd-leads">—</div>
-    <div class="kpi-sparkline"><canvas id="spark-wtd" role="img" aria-label="Week to date leads trend"></canvas></div>
-  </div>
-  <div class="kpi-card">
-    <div class="kpi-label">Month to Date</div>
-    <div class="kpi-value" id="mtd-leads">—</div>
-    <div class="kpi-sparkline"><canvas id="spark-mtd" role="img" aria-label="Month to date leads trend"></canvas></div>
-  </div>
-</div>
+  <div class="section-label">Key Metrics</div>
 
-<div class="section-label">Breakdown</div>
-<div class="chart-grid">
-  <div class="chart-card">
-    <h3>Leads by Source</h3>
-    <div class="chart-wrap">
-      <canvas id="chart-source" role="img" aria-label="Bar chart of leads by source"></canvas>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Total Leads</div>
+      <div class="kpi-value" id="total-leads">—</div>
+      <div class="kpi-sparkline"><canvas id="spark-total" role="img" aria-label="Total leads sparkline"></canvas></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Yesterday</div>
+      <div class="kpi-value" id="yesterday-leads">—</div>
+      <div class="kpi-sparkline"><canvas id="spark-yest" role="img" aria-label="Yesterday leads sparkline"></canvas></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Week to Date</div>
+      <div class="kpi-value" id="wtd-leads">—</div>
+      <div class="kpi-sparkline"><canvas id="spark-wtd" role="img" aria-label="WTD leads sparkline"></canvas></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Month to Date</div>
+      <div class="kpi-value" id="mtd-leads">—</div>
+      <div class="kpi-sparkline"><canvas id="spark-mtd" role="img" aria-label="MTD leads sparkline"></canvas></div>
     </div>
   </div>
-  <div class="chart-card">
-    <h3>Leads by Status</h3>
-    <div class="chart-wrap">
-      <canvas id="chart-status" role="img" aria-label="Bar chart of leads by status"></canvas>
+
+  <div class="section-label">Breakdown</div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <h3>Leads by Source</h3>
+      <div class="chart-wrap">
+        <canvas id="chart-source" role="img" aria-label="Leads by source bar chart"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <h3>Leads by Status</h3>
+      <div class="chart-wrap">
+        <canvas id="chart-status" role="img" aria-label="Leads by status bar chart"></canvas>
+      </div>
     </div>
   </div>
+
 </div>
 
 <script>
-const GREEN      = '#1D9E75';
-const GREEN_BG   = 'rgba(29,158,117,0.12)';
-const BLUE       = '#378ADD';
-const BLUE_LIGHT = 'rgba(55,138,221,0.15)';
-const CORAL      = '#D85A30';
-const CORAL_BG   = 'rgba(216,90,48,0.12)';
+const PURPLE   = '#6c63ff';
+const TEAL     = '#3ecfcf';
+const PURPLE_BG = 'rgba(108,99,255,0.15)';
+const TEAL_BG   = 'rgba(62,207,207,0.15)';
 
 function fmt(n) {
-  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
-  if (n >= 1000)    return (n / 1000).toFixed(1) + 'K';
-  return n.toString();
+  if (n == null) return '—';
+  if (n >= 1000000) return (n/1000000).toFixed(1)+'M';
+  if (n >= 1000)    return (n/1000).toFixed(1)+'K';
+  return n.toLocaleString();
 }
 
-function sparkline(canvasId, data, color, bgColor) {
-  new Chart(document.getElementById(canvasId), {
+function sparkline(id, data, color, bg) {
+  new Chart(document.getElementById(id), {
     type: 'line',
     data: {
-      labels: data.map((_, i) => i),
-      datasets: [{
-        data,
-        borderColor: color,
-        borderWidth: 1.5,
-        pointRadius: 0,
-        fill: true,
-        backgroundColor: bgColor,
-        tension: 0.4
-      }]
+      labels: data.map((_,i) => i),
+      datasets: [{ data, borderColor: color, borderWidth: 1.5,
+        pointRadius: 0, fill: true, backgroundColor: bg, tension: 0.4 }]
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
+      responsive: true, maintainAspectRatio: false, animation: false,
       plugins: { legend: { display: false }, tooltip: { enabled: false } },
-      scales:  { x: { display: false }, y: { display: false } },
-      animation: false
+      scales: { x: { display: false }, y: { display: false } }
     }
   });
 }
 
-function barChart(canvasId, labels, values, color, bgColor) {
-  const n = labels.length;
-  const height = Math.max(220, n * 38 + 40);
-  const wrap = document.getElementById(canvasId).parentElement;
-  wrap.style.height = height + 'px';
-
-  new Chart(document.getElementById(canvasId), {
+function barChart(id, labels, values, color, bg) {
+  new Chart(document.getElementById(id), {
     type: 'bar',
     data: {
       labels,
-      datasets: [{
-        data: values,
-        backgroundColor: bgColor,
-        borderColor: color,
-        borderWidth: 1.5,
-        borderRadius: 4
-      }]
+      datasets: [{ data: values, backgroundColor: bg,
+        borderColor: color, borderWidth: 1, borderRadius: 3 }]
     },
     options: {
       indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
+      responsive: true, maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: ctx => ' ' + ctx.parsed.x.toLocaleString() + ' leads'
-          }
-        }
+        tooltip: { callbacks: { label: c => ' '+c.parsed.x.toLocaleString()+' leads' },
+          backgroundColor: '#1e2030', titleColor: '#aaa', bodyColor: '#fff',
+          borderColor: '#2a2d3a', borderWidth: 1 }
       },
       scales: {
         x: {
-          grid: { color: 'rgba(0,0,0,0.05)' },
-          ticks: { font: { size: 11 }, color: '#999' }
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: '#555b72', font: { size: 10 } }
         },
         y: {
           grid: { display: false },
-          ticks: { font: { size: 12 }, color: '#444' }
+          ticks: { color: '#c0c4d6', font: { size: 11 } }
         }
       }
     }
   });
 }
 
-async function loadDashboard() {
+async function load() {
   try {
     const res  = await fetch('data.json');
-    if (!res.ok) throw new Error(`Could not load data.json (${res.status})`);
-    const data = await res.json();
+    if (!res.ok) throw new Error('Could not load data.json ('+res.status+')');
+    const d = await res.json();
 
-    document.getElementById('last-updated').textContent =
-      'Last updated: ' + data.last_updated;
+    document.getElementById('last-updated').textContent = 'Updated: ' + d.last_updated;
+    document.getElementById('total-leads').textContent     = fmt(d.total_leads);
+    document.getElementById('yesterday-leads').textContent = fmt(d.yesterday_leads);
+    document.getElementById('wtd-leads').textContent       = fmt(d.wtd_leads);
+    document.getElementById('mtd-leads').textContent       = fmt(d.mtd_leads);
 
-    document.getElementById('total-leads').textContent     = fmt(data.total_leads);
-    document.getElementById('yesterday-leads').textContent = fmt(data.yesterday_leads);
-    document.getElementById('wtd-leads').textContent       = fmt(data.wtd_leads);
-    document.getElementById('mtd-leads').textContent       = fmt(data.mtd_leads);
+    const spark = d.sparkline_30d || [];
+    sparkline('spark-total', spark,          TEAL,   TEAL_BG);
+    sparkline('spark-yest',  spark.slice(-7), TEAL,   TEAL_BG);
+    sparkline('spark-wtd',   spark.slice(-7), PURPLE, PURPLE_BG);
+    sparkline('spark-mtd',   spark,           PURPLE, PURPLE_BG);
 
-    const spark = data.sparkline_30d || [];
+    const src = Object.entries(d.by_source||{}).sort((a,b)=>b[1]-a[1]);
+    barChart('chart-source', src.map(e=>e[0]), src.map(e=>e[1]), TEAL, TEAL_BG);
 
-    sparkline('spark-total', spark,                        GREEN,  GREEN_BG);
-    sparkline('spark-yest',  spark.slice(-7),              GREEN,  GREEN_BG);
-    sparkline('spark-wtd',   spark.slice(-7),              GREEN,  GREEN_BG);
-    sparkline('spark-mtd',   spark,                        GREEN,  GREEN_BG);
+    const sta = Object.entries(d.by_status||{}).sort((a,b)=>b[1]-a[1]);
+    barChart('chart-status', sta.map(e=>e[0]), sta.map(e=>e[1]), PURPLE, PURPLE_BG);
 
-    const sourceEntries = Object.entries(data.by_source || {})
-      .sort((a, b) => b[1] - a[1]);
-    barChart(
-      'chart-source',
-      sourceEntries.map(e => e[0]),
-      sourceEntries.map(e => e[1]),
-      BLUE, BLUE_LIGHT
-    );
-
-    const statusEntries = Object.entries(data.by_status || {})
-      .sort((a, b) => b[1] - a[1]);
-    barChart(
-      'chart-status',
-      statusEntries.map(e => e[0]),
-      statusEntries.map(e => e[1]),
-      CORAL, CORAL_BG
-    );
-
-  } catch (err) {
+  } catch(err) {
     const el = document.getElementById('error-msg');
     el.style.display = 'block';
-    el.textContent   = 'Error loading dashboard data: ' + err.message;
-    console.error(err);
+    el.textContent = 'Error loading data: ' + err.message;
   }
 }
 
-loadDashboard();
+load();
 </script>
 </body>
 </html>
