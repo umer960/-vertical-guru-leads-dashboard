@@ -21,10 +21,9 @@
     display: flex;
     flex-direction: column;
     padding: 14px 20px 10px;
-    gap: 10px;
+    gap: 9px;
   }
 
-  /* HEADER */
   header {
     display: flex;
     align-items: center;
@@ -32,85 +31,96 @@
     flex-shrink: 0;
   }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .brand { display: flex; align-items: center; gap: 10px; }
 
   .brand-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #6c63ff, #3ecfcf);
+    width: 30px; height: 30px; border-radius: 8px;
+    background: #6c63ff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: #fff;
+  }
+
+  .brand-name { font-size: 16px; font-weight: 600; color: #fff; }
+  .brand-sub  { font-size: 10px; color: #555b72; margin-top: 1px; }
+
+  .header-right { display: flex; align-items: center; gap: 14px; }
+
+  .live-badge { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #3ecfcf; }
+  .live-dot   { width: 6px; height: 6px; border-radius: 50%; background: #3ecfcf; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  #last-updated { font-size: 11px; color: #555b72; }
+
+  /* DATE RANGE BAR */
+  .date-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 700;
+    gap: 8px;
+    flex-shrink: 0;
+    background: #161820;
+    border: 0.5px solid #2a2d3a;
+    border-radius: 10px;
+    padding: 7px 14px;
+  }
+
+  .date-bar label { font-size: 11px; color: #555b72; white-space: nowrap; }
+
+  .date-bar input[type="date"] {
+    background: #0e0f14;
+    border: 0.5px solid #2a2d3a;
+    border-radius: 6px;
+    color: #e2e4ed;
+    font-size: 12px;
+    padding: 4px 8px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .date-bar input[type="date"]:focus { border-color: #6c63ff; }
+
+  .date-sep { font-size: 11px; color: #555b72; }
+
+  .preset-btns { display: flex; gap: 5px; margin-left: 6px; }
+
+  .preset-btn {
+    background: transparent;
+    border: 0.5px solid #2a2d3a;
+    border-radius: 6px;
+    color: #888;
+    font-size: 11px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .preset-btn:hover  { border-color: #6c63ff; color: #c0bdff; }
+  .preset-btn.active { border-color: #6c63ff; color: #6c63ff; background: rgba(108,99,255,0.1); }
+
+  .apply-btn {
+    margin-left: auto;
+    background: #6c63ff;
+    border: none;
+    border-radius: 6px;
     color: #fff;
-  }
-
-  .brand-name {
-    font-size: 17px;
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: 0.01em;
-  }
-
-  .brand-sub {
     font-size: 11px;
-    color: #555b72;
-    margin-top: 1px;
+    padding: 5px 14px;
+    cursor: pointer;
+    font-weight: 500;
   }
 
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .live-badge {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 11px;
-    color: #3ecfcf;
-  }
-
-  .live-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #3ecfcf;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  #last-updated {
-    font-size: 11px;
-    color: #555b72;
-  }
+  .apply-btn:hover { background: #7c74ff; }
 
   /* SECTION LABEL */
   .section-label {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #555b72;
-    flex-shrink: 0;
+    font-size: 9px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #555b72; flex-shrink: 0;
   }
 
   /* KPI GRID */
   .kpi-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    gap: 7px;
     flex-shrink: 0;
   }
 
@@ -118,7 +128,7 @@
     background: #161820;
     border: 0.5px solid #2a2d3a;
     border-radius: 10px;
-    padding: 10px 12px 8px;
+    padding: 9px 12px 7px;
     position: relative;
     overflow: hidden;
   }
@@ -128,37 +138,32 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #6c63ff, #3ecfcf);
     border-radius: 10px 10px 0 0;
   }
 
+  .kpi-card.purple::before { background: #6c63ff; }
+  .kpi-card.teal::before   { background: #3ecfcf; }
+
   .kpi-label {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: #555b72;
-    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 3px;
+    letter-spacing: 0.01em;
   }
 
   .kpi-value {
-    font-size: 22px;
-    font-weight: 600;
-    color: #fff;
-    line-height: 1;
-    margin-bottom: 6px;
+    font-size: 22px; font-weight: 600; color: #fff;
+    line-height: 1; margin-bottom: 6px;
   }
 
-  .kpi-sparkline {
-    position: relative;
-    height: 32px;
-  }
+  .kpi-sparkline { position: relative; height: 30px; }
 
   /* CHARTS ROW */
   .charts-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 7px;
     flex: 1;
     min-height: 0;
   }
@@ -167,36 +172,25 @@
     background: #161820;
     border: 0.5px solid #2a2d3a;
     border-radius: 10px;
-    padding: 12px 14px;
+    padding: 11px 13px;
     display: flex;
     flex-direction: column;
     min-height: 0;
   }
 
   .chart-card h3 {
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #555b72;
-    margin-bottom: 8px;
-    flex-shrink: 0;
+    font-size: 11px; font-weight: 500;
+    color: #888; margin-bottom: 8px; flex-shrink: 0;
   }
 
-  .chart-wrap {
-    position: relative;
-    flex: 1;
-    min-height: 0;
-  }
+  .chart-wrap { position: relative; flex: 1; min-height: 0; }
 
   #error-msg {
     display: none;
     background: rgba(216,90,48,0.1);
     border: 0.5px solid rgba(216,90,48,0.3);
-    border-radius: 8px;
-    padding: 10px 14px;
-    color: #f0856a;
-    font-size: 12px;
+    border-radius: 8px; padding: 10px 14px;
+    color: #f0856a; font-size: 12px; flex-shrink: 0;
   }
 </style>
 </head>
@@ -217,30 +211,46 @@
     </div>
   </header>
 
+  <div class="date-bar">
+    <label>From</label>
+    <input type="date" id="date-from"/>
+    <span class="date-sep">—</span>
+    <label>To</label>
+    <input type="date" id="date-to"/>
+    <div class="preset-btns">
+      <button class="preset-btn" data-days="1">Yesterday</button>
+      <button class="preset-btn active" data-days="7">7 days</button>
+      <button class="preset-btn" data-days="30">30 days</button>
+      <button class="preset-btn" data-days="90">90 days</button>
+      <button class="preset-btn" data-days="0">All time</button>
+    </div>
+    <button class="apply-btn" onclick="applyFilter()">Apply</button>
+  </div>
+
   <div id="error-msg"></div>
 
   <div class="section-label">Key Metrics</div>
 
   <div class="kpi-grid">
-    <div class="kpi-card">
+    <div class="kpi-card purple">
       <div class="kpi-label">Total Leads</div>
-      <div class="kpi-value" id="total-leads">—</div>
-      <div class="kpi-sparkline"><canvas id="spark-total" role="img" aria-label="Total leads sparkline"></canvas></div>
+      <div class="kpi-value" id="v-total">—</div>
+      <div class="kpi-sparkline"><canvas id="sp1" role="img" aria-label="Total leads sparkline"></canvas></div>
     </div>
-    <div class="kpi-card">
+    <div class="kpi-card teal">
       <div class="kpi-label">Yesterday</div>
-      <div class="kpi-value" id="yesterday-leads">—</div>
-      <div class="kpi-sparkline"><canvas id="spark-yest" role="img" aria-label="Yesterday leads sparkline"></canvas></div>
+      <div class="kpi-value" id="v-yest">—</div>
+      <div class="kpi-sparkline"><canvas id="sp2" role="img" aria-label="Yesterday sparkline"></canvas></div>
     </div>
-    <div class="kpi-card">
+    <div class="kpi-card purple">
       <div class="kpi-label">Week to Date</div>
-      <div class="kpi-value" id="wtd-leads">—</div>
-      <div class="kpi-sparkline"><canvas id="spark-wtd" role="img" aria-label="WTD leads sparkline"></canvas></div>
+      <div class="kpi-value" id="v-wtd">—</div>
+      <div class="kpi-sparkline"><canvas id="sp3" role="img" aria-label="WTD sparkline"></canvas></div>
     </div>
-    <div class="kpi-card">
+    <div class="kpi-card teal">
       <div class="kpi-label">Month to Date</div>
-      <div class="kpi-value" id="mtd-leads">—</div>
-      <div class="kpi-sparkline"><canvas id="spark-mtd" role="img" aria-label="MTD leads sparkline"></canvas></div>
+      <div class="kpi-value" id="v-mtd">—</div>
+      <div class="kpi-sparkline"><canvas id="sp4" role="img" aria-label="MTD sparkline"></canvas></div>
     </div>
   </div>
 
@@ -248,15 +258,15 @@
 
   <div class="charts-row">
     <div class="chart-card">
-      <h3>Leads by Source</h3>
+      <h3>Top 10 Leads by Source</h3>
       <div class="chart-wrap">
-        <canvas id="chart-source" role="img" aria-label="Leads by source bar chart"></canvas>
+        <canvas id="ch-src" role="img" aria-label="Leads by source bar chart"></canvas>
       </div>
     </div>
     <div class="chart-card">
       <h3>Leads by Status</h3>
       <div class="chart-wrap">
-        <canvas id="chart-status" role="img" aria-label="Leads by status bar chart"></canvas>
+        <canvas id="ch-sta" role="img" aria-label="Leads by status bar chart"></canvas>
       </div>
     </div>
   </div>
@@ -264,88 +274,188 @@
 </div>
 
 <script>
-const PURPLE   = '#6c63ff';
-const TEAL     = '#3ecfcf';
-const PURPLE_BG = 'rgba(108,99,255,0.15)';
-const TEAL_BG   = 'rgba(62,207,207,0.15)';
+const PURPLE='#6c63ff', TEAL='#3ecfcf';
+const PBG='rgba(108,99,255,0.18)', TBG='rgba(62,207,207,0.18)';
+
+let RAW_DATA = null;
+let srcChart = null;
+let staChart = null;
+let sparkCharts = [];
 
 function fmt(n) {
   if (n == null) return '—';
-  if (n >= 1000000) return (n/1000000).toFixed(1)+'M';
-  if (n >= 1000)    return (n/1000).toFixed(1)+'K';
-  return n.toLocaleString();
+  if (n >= 1e6)  return (n/1e6).toFixed(1)+'M';
+  if (n >= 1000) return (n/1000).toFixed(1)+'K';
+  return Math.round(n).toLocaleString();
 }
 
-function sparkline(id, data, color, bg) {
+function toDate(str) { return new Date(str + 'T00:00:00'); }
+
+function todayStr() { return new Date().toISOString().split('T')[0]; }
+
+function daysAgoStr(n) {
+  const d = new Date();
+  d.setDate(d.getDate() - n);
+  return d.toISOString().split('T')[0];
+}
+
+function setPreset(days) {
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector(`.preset-btn[data-days="${days}"]`);
+  if (btn) btn.classList.add('active');
+
+  const to = todayStr();
+  let from;
+  if (days === 0) {
+    from = '2000-01-01';
+  } else if (days === 1) {
+    from = daysAgoStr(1);
+  } else {
+    from = daysAgoStr(days - 1);
+  }
+  document.getElementById('date-from').value = from;
+  document.getElementById('date-to').value   = to;
+}
+
+function spark(id, data, color, bg) {
+  const existing = Chart.getChart(id);
+  if (existing) existing.destroy();
   new Chart(document.getElementById(id), {
     type: 'line',
-    data: {
-      labels: data.map((_,i) => i),
-      datasets: [{ data, borderColor: color, borderWidth: 1.5,
-        pointRadius: 0, fill: true, backgroundColor: bg, tension: 0.4 }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false, animation: false,
-      plugins: { legend: { display: false }, tooltip: { enabled: false } },
-      scales: { x: { display: false }, y: { display: false } }
-    }
+    data: { labels: data.map((_,i)=>i), datasets: [{ data, borderColor: color, borderWidth: 1.5, pointRadius: 0, fill: true, backgroundColor: bg, tension: 0.4 }] },
+    options: { responsive: true, maintainAspectRatio: false, animation: false, plugins: { legend: { display: false }, tooltip: { enabled: false } }, scales: { x: { display: false }, y: { display: false } } }
   });
 }
 
-function barChart(id, labels, values, color, bg) {
+function bar(id, labels, values, color, bg) {
+  const existing = Chart.getChart(id);
+  if (existing) existing.destroy();
   new Chart(document.getElementById(id), {
     type: 'bar',
-    data: {
-      labels,
-      datasets: [{ data: values, backgroundColor: bg,
-        borderColor: color, borderWidth: 1, borderRadius: 3 }]
-    },
+    data: { labels, datasets: [{ data: values, backgroundColor: bg, borderColor: color, borderWidth: 1, borderRadius: 3 }] },
     options: {
-      indexAxis: 'y',
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: { callbacks: { label: c => ' '+c.parsed.x.toLocaleString()+' leads' },
-          backgroundColor: '#1e2030', titleColor: '#aaa', bodyColor: '#fff',
-          borderColor: '#2a2d3a', borderWidth: 1 }
-      },
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ' ' + c.parsed.x.toLocaleString() + ' leads' }, backgroundColor: '#1e2030', titleColor: '#888', bodyColor: '#fff', borderColor: '#2a2d3a', borderWidth: 1 } },
       scales: {
-        x: {
-          grid: { color: 'rgba(255,255,255,0.04)' },
-          ticks: { color: '#555b72', font: { size: 10 } }
-        },
-        y: {
-          grid: { display: false },
-          ticks: { color: '#c0c4d6', font: { size: 11 } }
-        }
+        x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#555b72', font: { size: 10 } } },
+        y: { grid: { display: false }, ticks: { color: '#c0c4d6', font: { size: 11 } } }
       }
     }
   });
 }
 
+function applyFilter() {
+  if (!RAW_DATA) return;
+
+  const from = document.getElementById('date-from').value;
+  const to   = document.getElementById('date-to').value;
+
+  if (!from || !to) { renderAll(RAW_DATA); return; }
+
+  const fromDate = toDate(from);
+  const toDate_  = toDate(to);
+  toDate_.setHours(23,59,59);
+
+  const filtered = RAW_DATA.filter(lead => {
+    const d = new Date(lead.created_time);
+    return d >= fromDate && d <= toDate_;
+  });
+
+  renderKPIs(filtered, from, to);
+  renderCharts(filtered);
+}
+
+function renderKPIs(leads, from, to) {
+  const today     = todayStr();
+  const yesterday = daysAgoStr(1);
+  const weekStart = daysAgoStr(new Date().getDay() === 0 ? 6 : new Date().getDay() - 1);
+  const monthStart = new Date().toISOString().slice(0,7) + '-01';
+
+  const inRange = (d, start, end) => d >= start && d <= end;
+
+  const getDate = l => new Date(l.created_time).toISOString().split('T')[0];
+
+  document.getElementById('v-total').textContent = fmt(leads.length);
+  document.getElementById('v-yest').textContent  = fmt(leads.filter(l => getDate(l) === yesterday).length);
+  document.getElementById('v-wtd').textContent   = fmt(leads.filter(l => getDate(l) >= weekStart && getDate(l) <= today).length);
+  document.getElementById('v-mtd').textContent   = fmt(leads.filter(l => getDate(l) >= monthStart && getDate(l) <= today).length);
+
+  const days = Math.max(1, Math.ceil((toDate(to) - toDate(from)) / 86400000) + 1);
+  const sparkArr = Array.from({length: days}, (_, i) => {
+    const d = new Date(toDate(from));
+    d.setDate(d.getDate() + i);
+    const ds = d.toISOString().split('T')[0];
+    return leads.filter(l => getDate(l) === ds).length;
+  });
+
+  spark('sp1', sparkArr,             PURPLE, PBG);
+  spark('sp2', sparkArr.slice(-7),   TEAL,   TBG);
+  spark('sp3', sparkArr.slice(-7),   PURPLE, PBG);
+  spark('sp4', sparkArr,             TEAL,   TBG);
+}
+
+function renderCharts(leads) {
+  const srcCount = {};
+  const staCount = {};
+
+  leads.forEach(l => {
+    const s = l.lead_source || 'Unknown';
+    const t = l.lead_status || 'Unknown';
+    srcCount[s] = (srcCount[s] || 0) + 1;
+    staCount[t] = (staCount[t] || 0) + 1;
+  });
+
+  const srcTop10 = Object.entries(srcCount).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  const staAll   = Object.entries(staCount).sort((a,b)=>b[1]-a[1]);
+
+  bar('ch-src', srcTop10.map(e=>e[0]), srcTop10.map(e=>e[1]), TEAL,   TBG);
+  bar('ch-sta', staAll.map(e=>e[0]),   staAll.map(e=>e[1]),   PURPLE, PBG);
+}
+
+function renderAll(leads) {
+  const from = document.getElementById('date-from').value || '2000-01-01';
+  const to   = document.getElementById('date-to').value   || todayStr();
+  renderKPIs(leads, from, to);
+  renderCharts(leads);
+}
+
+document.querySelectorAll('.preset-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const days = parseInt(btn.dataset.days);
+    setPreset(days);
+  });
+});
+
 async function load() {
   try {
-    const res  = await fetch('data.json');
-    if (!res.ok) throw new Error('Could not load data.json ('+res.status+')');
+    const res = await fetch('data.json');
+    if (!res.ok) throw new Error('Could not load data.json (' + res.status + ')');
     const d = await res.json();
 
     document.getElementById('last-updated').textContent = 'Updated: ' + d.last_updated;
-    document.getElementById('total-leads').textContent     = fmt(d.total_leads);
-    document.getElementById('yesterday-leads').textContent = fmt(d.yesterday_leads);
-    document.getElementById('wtd-leads').textContent       = fmt(d.wtd_leads);
-    document.getElementById('mtd-leads').textContent       = fmt(d.mtd_leads);
 
-    const spark = d.sparkline_30d || [];
-    sparkline('spark-total', spark,          TEAL,   TEAL_BG);
-    sparkline('spark-yest',  spark.slice(-7), TEAL,   TEAL_BG);
-    sparkline('spark-wtd',   spark.slice(-7), PURPLE, PURPLE_BG);
-    sparkline('spark-mtd',   spark,           PURPLE, PURPLE_BG);
+    RAW_DATA = d.leads || [];
 
-    const src = Object.entries(d.by_source||{}).sort((a,b)=>b[1]-a[1]);
-    barChart('chart-source', src.map(e=>e[0]), src.map(e=>e[1]), TEAL, TEAL_BG);
+    if (RAW_DATA.length === 0) {
+      document.getElementById('v-total').textContent = fmt(d.total_leads);
+      document.getElementById('v-yest').textContent  = fmt(d.yesterday_leads);
+      document.getElementById('v-wtd').textContent   = fmt(d.wtd_leads);
+      document.getElementById('v-mtd').textContent   = fmt(d.mtd_leads);
 
-    const sta = Object.entries(d.by_status||{}).sort((a,b)=>b[1]-a[1]);
-    barChart('chart-status', sta.map(e=>e[0]), sta.map(e=>e[1]), PURPLE, PURPLE_BG);
+      const sp = d.sparkline_30d || [];
+      spark('sp1', sp,           PURPLE, PBG);
+      spark('sp2', sp.slice(-7), TEAL,   TBG);
+      spark('sp3', sp.slice(-7), PURPLE, PBG);
+      spark('sp4', sp,           TEAL,   TBG);
+
+      const src = Object.entries(d.by_source||{}).sort((a,b)=>b[1]-a[1]).slice(0,10);
+      bar('ch-src', src.map(e=>e[0]), src.map(e=>e[1]), TEAL,   TBG);
+      const sta = Object.entries(d.by_status||{}).sort((a,b)=>b[1]-a[1]);
+      bar('ch-sta', sta.map(e=>e[0]), sta.map(e=>e[1]), PURPLE, PBG);
+    } else {
+      setPreset(7);
+      renderAll(RAW_DATA);
+    }
 
   } catch(err) {
     const el = document.getElementById('error-msg');
@@ -354,6 +464,7 @@ async function load() {
   }
 }
 
+setPreset(7);
 load();
 </script>
 </body>
