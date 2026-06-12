@@ -8,6 +8,41 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0e0f14; color: #e2e4ed; overflow: hidden; }
+
+  /* ── GATE ── */
+  #gate {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; height: 100vh; gap: 14px;
+  }
+  .gate-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .gate-icon { width: 40px; height: 40px; border-radius: 11px; background: #6c63ff; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: #fff; }
+  .gate-title { font-size: 20px; font-weight: 600; color: #fff; }
+  .gate-sub   { font-size: 11px; color: #555b72; margin-top: 2px; }
+  .gate-hint  { font-size: 12px; color: #666; }
+  #gate-input {
+    background: #161820; border: 0.5px solid #2a2d3a; border-radius: 9px;
+    color: #fff; font-size: 18px; padding: 11px 20px; outline: none;
+    width: 250px; text-align: center; letter-spacing: 0.25em;
+    transition: border-color 0.2s;
+  }
+  #gate-input:focus { border-color: #6c63ff; }
+  #gate-input.shake {
+    animation: shake 0.4s ease;
+    border-color: #f0856a;
+  }
+  @keyframes shake {
+    0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)}
+  }
+  #gate-error { font-size: 11px; color: #f0856a; height: 14px; }
+  .gate-btn {
+    background: #6c63ff; border: none; border-radius: 8px;
+    color: #fff; font-size: 13px; font-weight: 500;
+    padding: 10px 36px; cursor: pointer; transition: background 0.15s;
+  }
+  .gate-btn:hover { background: #7c74ff; }
+
+  /* ── DASHBOARD ── */
+  #dashboard { display: none; }
   .app { height: 100vh; display: flex; flex-direction: column; padding: 14px 20px 10px; gap: 9px; }
 
   header { display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
@@ -52,6 +87,25 @@
 </style>
 </head>
 <body>
+
+<!-- ── GATE ── -->
+<div id="gate">
+  <div class="gate-logo">
+    <div class="gate-icon">VG</div>
+    <div>
+      <div class="gate-title">Vertical Guru</div>
+      <div class="gate-sub">Leads Dashboard</div>
+    </div>
+  </div>
+  <div class="gate-hint">Enter your access code</div>
+  <input id="gate-input" type="password" placeholder="••••••••"
+    onkeydown="if(event.key==='Enter') checkCode()"/>
+  <div id="gate-error"></div>
+  <button class="gate-btn" onclick="checkCode()">Enter</button>
+</div>
+
+<!-- ── DASHBOARD ── -->
+<div id="dashboard">
 <div class="app">
 
   <header>
@@ -85,7 +139,6 @@
   </div>
 
   <div id="error-msg"></div>
-
   <div class="section-label">Key Metrics</div>
 
   <div class="kpi-grid">
@@ -129,170 +182,130 @@
   </div>
 
 </div>
+</div>
+
 <script>
+// ── PASSCODE ─────────────────────────────────────────────
+const ACCESS_CODE = 'vg2026';  // ← change this to whatever you want
+
+function checkCode(){
+  const val = document.getElementById('gate-input').value;
+  if(val === ACCESS_CODE){
+    document.getElementById('gate').style.display      = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    load();
+  } else {
+    document.getElementById('gate-error').textContent = 'Incorrect code — try again';
+    const inp = document.getElementById('gate-input');
+    inp.value = '';
+    inp.classList.remove('shake');
+    void inp.offsetWidth; // force reflow to restart animation
+    inp.classList.add('shake');
+    setTimeout(()=>inp.classList.remove('shake'), 500);
+    inp.focus();
+  }
+}
+
+// ── DASHBOARD ────────────────────────────────────────────
 const PURPLE='#6c63ff', TEAL='#3ecfcf';
 const PBG='rgba(108,99,255,0.18)', TBG='rgba(62,207,207,0.18)';
-let RAW_DATA = [];  // full leads array from data.json
+let RAW_DATA = [];
 let STATIC   = null;
 
-// ── date helpers ──────────────────────────────────────────
 function fmt(n){ if(n==null)return'—'; if(n>=1e6)return(n/1e6).toFixed(1)+'M'; if(n>=1000)return(n/1000).toFixed(1)+'K'; return Math.round(n).toLocaleString(); }
-
-// Returns "YYYY-MM-DD" string in LOCAL time for a Date object
 function localDate(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-
 function todayStr(){ return localDate(new Date()); }
-
-function daysAgoStr(n){
-  const d = new Date();
-  d.setDate(d.getDate() - n);
-  return localDate(d);
-}
-
-// Parse a lead's created_time to a "YYYY-MM-DD" local date string
-// Zoho timestamps look like "2026-06-12T10:30:00+00:00"
-function leadDateStr(isoStr){
-  if(!isoStr) return null;
-  // Just take the date part — Zoho stores in UTC; treat as-is
-  return isoStr.substring(0, 10);
-}
+function daysAgoStr(n){ const d=new Date(); d.setDate(d.getDate()-n); return localDate(d); }
+function leadDateStr(iso){ return iso ? iso.substring(0,10) : null; }
 
 function setPreset(preset){
   document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
   document.querySelector(`.preset-btn[data-preset="${preset}"]`).classList.add('active');
   const today = todayStr();
-  let from;
-  if(preset === 'yesterday'){
-    from = daysAgoStr(1);
-    document.getElementById('date-from').value = from;
-    document.getElementById('date-to').value   = from;   // from=to=yesterday
-  } else if(preset === 'all'){
+  if(preset==='yesterday'){
+    const y = daysAgoStr(1);
+    document.getElementById('date-from').value = y;
+    document.getElementById('date-to').value   = y;
+  } else if(preset==='all'){
     document.getElementById('date-from').value = '2000-01-01';
     document.getElementById('date-to').value   = today;
   } else {
-    const n = parseInt(preset);
-    document.getElementById('date-from').value = daysAgoStr(n - 1);
+    document.getElementById('date-from').value = daysAgoStr(parseInt(preset)-1);
     document.getElementById('date-to').value   = today;
   }
 }
 
-// ── chart helpers ─────────────────────────────────────────
-function spark(id, data, color, bg){
-  const ex = Chart.getChart(id); if(ex) ex.destroy();
-  if(!data || !data.length) return;
-  new Chart(document.getElementById(id),{
-    type:'line',
-    data:{labels:data.map((_,i)=>i),datasets:[{data,borderColor:color,borderWidth:1.5,pointRadius:0,fill:true,backgroundColor:bg,tension:0.4}]},
-    options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},tooltip:{enabled:false}},scales:{x:{display:false},y:{display:false}}}
-  });
+function spark(id,data,color,bg){
+  const ex=Chart.getChart(id); if(ex) ex.destroy();
+  if(!data||!data.length) return;
+  new Chart(document.getElementById(id),{type:'line',data:{labels:data.map((_,i)=>i),datasets:[{data,borderColor:color,borderWidth:1.5,pointRadius:0,fill:true,backgroundColor:bg,tension:0.4}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},tooltip:{enabled:false}},scales:{x:{display:false},y:{display:false}}}});
 }
 
-function bar(id, labels, values, color, bg){
-  const ex = Chart.getChart(id); if(ex) ex.destroy();
-  if(!labels || !labels.length) return;
-  new Chart(document.getElementById(id),{
-    type:'bar',
-    data:{labels,datasets:[{data:values,backgroundColor:bg,borderColor:color,borderWidth:1,borderRadius:3}]},
-    options:{
-      indexAxis:'y',responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.parsed.x.toLocaleString()+' leads'},backgroundColor:'#1e2030',titleColor:'#888',bodyColor:'#fff',borderColor:'#2a2d3a',borderWidth:1}},
-      scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#555b72',font:{size:10}}},y:{grid:{display:false},ticks:{color:'#c0c4d6',font:{size:11}}}}
-    }
-  });
+function bar(id,labels,values,color,bg){
+  const ex=Chart.getChart(id); if(ex) ex.destroy();
+  if(!labels||!labels.length) return;
+  new Chart(document.getElementById(id),{type:'bar',data:{labels,datasets:[{data:values,backgroundColor:bg,borderColor:color,borderWidth:1,borderRadius:3}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.parsed.x.toLocaleString()+' leads'},backgroundColor:'#1e2030',titleColor:'#888',bodyColor:'#fff',borderColor:'#2a2d3a',borderWidth:1}},scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#555b72',font:{size:10}}},y:{grid:{display:false},ticks:{color:'#c0c4d6',font:{size:11}}}}}});
 }
 
-// ── core filter + render ──────────────────────────────────
 function applyFilter(){
-  const from = document.getElementById('date-from').value;  // "YYYY-MM-DD"
-  const to   = document.getElementById('date-to').value;    // "YYYY-MM-DD"
-  if(!from || !to){ return; }
+  const from = document.getElementById('date-from').value;
+  const to   = document.getElementById('date-to').value;
+  if(!from||!to) return;
 
-  // Filter leads: simple string comparison on YYYY-MM-DD — no timezone confusion
-  const filtered = RAW_DATA.filter(l => {
-    const ds = leadDateStr(l.created_time);
-    if(!ds) return false;
-    return ds >= from && ds <= to;
-  });
+  const filtered = RAW_DATA.filter(l=>{ const ds=leadDateStr(l.created_time); return ds && ds>=from && ds<=to; });
 
-  // Update Total Leads card
   document.getElementById('v-total').textContent = fmt(filtered.length);
-  document.getElementById('range-label').textContent = from === to ? from : from + ' → ' + to;
+  document.getElementById('range-label').textContent = from===to ? from : from+' → '+to;
 
-  // Sparkline: one point per day in range
-  const msPerDay = 86400000;
-  const fromMs   = new Date(from + 'T00:00:00').getTime();
-  const toMs     = new Date(to   + 'T00:00:00').getTime();
-  const numDays  = Math.round((toMs - fromMs) / msPerDay) + 1;
-  const sparkArr = Array.from({length: numDays}, (_, i) => {
-    const ds = localDate(new Date(fromMs + i * msPerDay));
-    return filtered.filter(l => leadDateStr(l.created_time) === ds).length;
-  });
-  spark('sp1', sparkArr, PURPLE, PBG);
+  const msPerDay=86400000;
+  const fromMs=new Date(from+'T00:00:00').getTime();
+  const toMs  =new Date(to  +'T00:00:00').getTime();
+  const numDays=Math.round((toMs-fromMs)/msPerDay)+1;
+  const sparkArr=Array.from({length:numDays},(_,i)=>{ const ds=localDate(new Date(fromMs+i*msPerDay)); return filtered.filter(l=>leadDateStr(l.created_time)===ds).length; });
+  spark('sp1',sparkArr,PURPLE,PBG);
 
-  // Charts
-  const srcCount = {}, staCount = {};
-  filtered.forEach(l => {
-    const s = l.lead_source || 'Unknown'; srcCount[s] = (srcCount[s]||0) + 1;
-    const t = l.lead_status || 'Unknown'; staCount[t] = (staCount[t]||0) + 1;
-  });
-  const src = Object.entries(srcCount).sort((a,b)=>b[1]-a[1]).slice(0,10);
-  const sta = Object.entries(staCount).sort((a,b)=>b[1]-a[1]);
-  bar('ch-src', src.map(e=>e[0]), src.map(e=>e[1]), TEAL,   TBG);
-  bar('ch-sta', sta.map(e=>e[0]), sta.map(e=>e[1]), PURPLE, PBG);
+  const srcCount={},staCount={};
+  filtered.forEach(l=>{ const s=l.lead_source||'Unknown'; srcCount[s]=(srcCount[s]||0)+1; const t=l.lead_status||'Unknown'; staCount[t]=(staCount[t]||0)+1; });
+  const src=Object.entries(srcCount).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  const sta=Object.entries(staCount).sort((a,b)=>b[1]-a[1]);
+  bar('ch-src',src.map(e=>e[0]),src.map(e=>e[1]),TEAL,TBG);
+  bar('ch-sta',sta.map(e=>e[0]),sta.map(e=>e[1]),PURPLE,PBG);
 }
 
-// ── preset buttons ────────────────────────────────────────
-document.querySelectorAll('.preset-btn').forEach(btn => {
-  btn.addEventListener('click', () => setPreset(btn.dataset.preset));
-});
+document.querySelectorAll('.preset-btn').forEach(btn=>btn.addEventListener('click',()=>setPreset(btn.dataset.preset)));
 
-// ── load data.json ────────────────────────────────────────
 async function load(){
   try{
-    const res = await fetch('data.json');
+    const res=await fetch('data.json');
     if(!res.ok) throw new Error('Could not load data.json ('+res.status+')');
-    const d = await res.json();
-
-    document.getElementById('last-updated').textContent = 'Updated: ' + d.last_updated;
-
-    STATIC   = d;
-    RAW_DATA = Array.isArray(d.leads) ? d.leads : [];
-
-    // Fixed KPI cards — always real period values
-    document.getElementById('v-yest').textContent = fmt(d.yesterday_leads);
-    document.getElementById('v-wtd').textContent  = fmt(d.wtd_leads);
-    document.getElementById('v-mtd').textContent  = fmt(d.mtd_leads);
-
-    const sp = d.sparkline_30d || [];
-    spark('sp2', sp.slice(-7),  TEAL,   TBG);
-    spark('sp3', sp.slice(-7),  PURPLE, PBG);
-    spark('sp4', sp,            TEAL,   TBG);
-
-    if(RAW_DATA.length === 0){
-      // No raw leads — fall back to static totals
-      document.getElementById('v-total').textContent = fmt(d.total_leads);
-      document.getElementById('range-label').textContent = 'all time';
-      spark('sp1', sp, PURPLE, PBG);
-      const src = Object.entries(d.by_source||{}).sort((a,b)=>b[1]-a[1]).slice(0,10);
-      const sta = Object.entries(d.by_status||{}).sort((a,b)=>b[1]-a[1]);
-      bar('ch-src', src.map(e=>e[0]), src.map(e=>e[1]), TEAL,   TBG);
-      bar('ch-sta', sta.map(e=>e[0]), sta.map(e=>e[1]), PURPLE, PBG);
-      document.getElementById('range-label').textContent = '⚠ run workflow to enable filtering';
+    const d=await res.json();
+    document.getElementById('last-updated').textContent='Updated: '+d.last_updated;
+    STATIC=d; RAW_DATA=Array.isArray(d.leads)?d.leads:[];
+    document.getElementById('v-yest').textContent=fmt(d.yesterday_leads);
+    document.getElementById('v-wtd').textContent =fmt(d.wtd_leads);
+    document.getElementById('v-mtd').textContent =fmt(d.mtd_leads);
+    const sp=d.sparkline_30d||[];
+    spark('sp2',sp.slice(-7),TEAL,TBG);
+    spark('sp3',sp.slice(-7),PURPLE,PBG);
+    spark('sp4',sp,TEAL,TBG);
+    if(RAW_DATA.length===0){
+      document.getElementById('v-total').textContent=fmt(d.total_leads);
+      document.getElementById('range-label').textContent='run workflow to enable filtering';
+      spark('sp1',sp,PURPLE,PBG);
+      const src=Object.entries(d.by_source||{}).sort((a,b)=>b[1]-a[1]).slice(0,10);
+      const sta=Object.entries(d.by_status||{}).sort((a,b)=>b[1]-a[1]);
+      bar('ch-src',src.map(e=>e[0]),src.map(e=>e[1]),TEAL,TBG);
+      bar('ch-sta',sta.map(e=>e[0]),sta.map(e=>e[1]),PURPLE,PBG);
     } else {
-      // Apply default 30-day filter
-      setPreset('30');
-      applyFilter();
+      setPreset('30'); applyFilter();
     }
-
   } catch(err){
-    const el = document.getElementById('error-msg');
-    el.style.display = 'block';
-    el.textContent   = 'Error loading data: ' + err.message;
+    const el=document.getElementById('error-msg');
+    el.style.display='block'; el.textContent='Error loading data: '+err.message;
   }
 }
 
 setPreset('30');
-load();
 </script>
 </body>
 </html>
