@@ -91,12 +91,12 @@
   "by_status": {
     "Attempted to Contact": 3531,
     "Not Contacted": 3282,
-    "Lost Lead": 1794,
+    "Lost Lead": 1795,
     "COLD": 1119,
-    "Junk Lead": 611,
+    "Junk Lead": 613,
     "Contacted": 332,
     "WARM": 228,
-    "MEETING SET": 222,
+    "MEETING SET": 219,
     "Contact in Future": 129,
     "HOT": 46,
     "Not Qualified": 9,
@@ -438,7 +438,7 @@
     {
       "created_time": "2026-05-21T16:31:05+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "MEETING SET"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-05-20T18:16:57+00:00",
@@ -1073,7 +1073,7 @@
     {
       "created_time": "2026-04-19T02:10:21+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "MEETING SET"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-04-19T01:33:51+00:00",
@@ -1233,7 +1233,7 @@
     {
       "created_time": "2026-03-30T02:14:43+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "MEETING SET"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-03-30T06:16:49+00:00",
