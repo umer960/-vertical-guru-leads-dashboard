@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-06-15",
-  "total_leads": 11304,
-  "yesterday_leads": 0,
-  "wtd_leads": 3,
-  "mtd_leads": 42,
+  "last_updated": "2026-06-16",
+  "total_leads": 11305,
+  "yesterday_leads": 4,
+  "wtd_leads": 4,
+  "mtd_leads": 43,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -35,7 +35,7 @@
     "GoogleFREE WEBSITE QUOTE Form": 37,
     "Direct Website Submission": 29,
     "Cold": 26,
-    "Vertical Guru": 22,
+    "Vertical Guru": 23,
     "GoogleREACH OUT TO US Form": 22,
     "Referral": 19,
     "LeTip": 18,
@@ -98,12 +98,11 @@
     "WARM": 228,
     "MEETING SET": 222,
     "Contact in Future": 129,
-    "HOT": 45,
+    "HOT": 46,
     "Not Qualified": 9,
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    0,
     3,
     1,
     2,
@@ -132,7 +131,8 @@
     5,
     0,
     0,
-    3
+    4,
+    0
   ],
   "leads": [
     {
@@ -149,6 +149,11 @@
       "created_time": "2026-06-15T15:42:17+00:00",
       "lead_source": "Thumbtack",
       "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-06-15T21:32:05+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "HOT"
     },
     {
       "created_time": "2026-06-12T14:03:39+00:00",
