@@ -1,9 +1,9 @@
 {
   "last_updated": "2026-06-16",
-  "total_leads": 11305,
+  "total_leads": 11307,
   "yesterday_leads": 4,
-  "wtd_leads": 4,
-  "mtd_leads": 43,
+  "wtd_leads": 6,
+  "mtd_leads": 45,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -20,7 +20,7 @@
     "Facebook Ads": 140,
     "Event": 124,
     "Everything Bergen Advertise": 92,
-    "External Referral": 90,
+    "External Referral": 91,
     "Google Maps": 83,
     "WebSite Visit": 79,
     "Unknown": 77,
@@ -35,7 +35,7 @@
     "GoogleFREE WEBSITE QUOTE Form": 37,
     "Direct Website Submission": 29,
     "Cold": 26,
-    "Vertical Guru": 23,
+    "Vertical Guru": 24,
     "GoogleREACH OUT TO US Form": 22,
     "Referral": 19,
     "LeTip": 18,
@@ -90,13 +90,13 @@
   },
   "by_status": {
     "Attempted to Contact": 3531,
-    "Not Contacted": 3282,
+    "Not Contacted": 3283,
     "Lost Lead": 1795,
     "COLD": 1119,
-    "Junk Lead": 613,
-    "Contacted": 332,
+    "Junk Lead": 614,
+    "Contacted": 333,
     "WARM": 228,
-    "MEETING SET": 219,
+    "MEETING SET": 218,
     "Contact in Future": 129,
     "HOT": 46,
     "Not Qualified": 9,
@@ -132,9 +132,19 @@
     0,
     0,
     4,
-    0
+    2
   ],
   "leads": [
+    {
+      "created_time": "2026-06-16T19:50:57+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Contacted"
+    },
+    {
+      "created_time": "2026-06-16T17:57:01+00:00",
+      "lead_source": "External Referral",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-06-15T15:49:02+00:00",
       "lead_source": "Thumbtack",
@@ -1558,7 +1568,7 @@
     {
       "created_time": "2026-03-06T14:25:17+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "MEETING SET"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-03-06T14:24:29+00:00",
