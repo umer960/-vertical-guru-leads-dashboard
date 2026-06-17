@@ -90,12 +90,12 @@
   },
   "by_status": {
     "Attempted to Contact": 3532,
-    "Not Contacted": 3284,
-    "Lost Lead": 1795,
+    "Not Contacted": 3283,
+    "Lost Lead": 1797,
     "COLD": 1119,
     "Junk Lead": 614,
     "Contacted": 333,
-    "WARM": 228,
+    "WARM": 227,
     "MEETING SET": 218,
     "Contact in Future": 129,
     "HOT": 46,
@@ -283,7 +283,7 @@
     {
       "created_time": "2026-06-04T11:26:10+00:00",
       "lead_source": "Everything Bergen Advertise",
-      "lead_status": "Not Contacted"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-06-03T13:25:51+00:00",
@@ -298,7 +298,7 @@
     {
       "created_time": "2026-06-02T14:05:31+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "WARM"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-06-03T13:36:56+00:00",
