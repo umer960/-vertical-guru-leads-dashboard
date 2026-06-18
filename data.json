@@ -10,7 +10,7 @@
     "Wix Arena": 1075,
     "WIX Marketplace": 862,
     "Cold Call": 806,
-    "Thumbtack": 686,
+    "Thumbtack": 685,
     "Meta Ads": 535,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
@@ -19,7 +19,7 @@
     "Networking / Conference": 161,
     "Facebook Ads": 140,
     "Event": 124,
-    "External Referral": 92,
+    "External Referral": 93,
     "Everything Bergen Advertise": 92,
     "Google Maps": 83,
     "WebSite Visit": 79,
@@ -136,6 +136,11 @@
   ],
   "leads": [
     {
+      "created_time": "2026-06-18T17:59:51+00:00",
+      "lead_source": "External Referral",
+      "lead_status": "Not Contacted"
+    },
+    {
       "created_time": "2026-06-17T20:57:03+00:00",
       "lead_source": "Employee Referral",
       "lead_status": "MEETING SET"
@@ -149,11 +154,6 @@
       "created_time": "2026-06-16T19:50:57+00:00",
       "lead_source": "Vertical Guru",
       "lead_status": "Contacted"
-    },
-    {
-      "created_time": "2026-06-18T13:12:02+00:00",
-      "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
     },
     {
       "created_time": "2026-06-17T14:19:05+00:00",
