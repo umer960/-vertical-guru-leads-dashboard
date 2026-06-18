@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-06-17",
-  "total_leads": 11309,
-  "yesterday_leads": 2,
-  "wtd_leads": 8,
-  "mtd_leads": 47,
+  "last_updated": "2026-06-18",
+  "total_leads": 11310,
+  "yesterday_leads": 3,
+  "wtd_leads": 9,
+  "mtd_leads": 48,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -25,7 +25,7 @@
     "WebSite Visit": 79,
     "Unknown": 77,
     "Google": 74,
-    "Employee Referral": 67,
+    "Employee Referral": 68,
     "FacebookFREE WEBSITE QUOTE Form": 59,
     "Instagram": 48,
     "Everything Bergen Member SignUp": 46,
@@ -96,14 +96,13 @@
     "Junk Lead": 614,
     "Contacted": 333,
     "WARM": 227,
-    "MEETING SET": 218,
+    "MEETING SET": 219,
     "Contact in Future": 129,
     "HOT": 46,
     "Not Qualified": 9,
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    1,
     2,
     3,
     5,
@@ -132,9 +131,15 @@
     0,
     4,
     2,
-    2
+    3,
+    0
   ],
   "leads": [
+    {
+      "created_time": "2026-06-17T20:57:03+00:00",
+      "lead_source": "Employee Referral",
+      "lead_status": "MEETING SET"
+    },
     {
       "created_time": "2026-06-17T14:49:35+00:00",
       "lead_source": "Vertical Guru",
