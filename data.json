@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-06-20",
+  "last_updated": "2026-06-21",
   "total_leads": 11314,
-  "yesterday_leads": 2,
+  "yesterday_leads": 0,
   "wtd_leads": 13,
   "mtd_leads": 52,
   "by_source": {
@@ -103,7 +103,6 @@
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    5,
     0,
     0,
     0,
@@ -132,6 +131,7 @@
     3,
     2,
     2,
+    0,
     0
   ],
   "leads": [
