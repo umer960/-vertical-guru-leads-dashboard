@@ -1,16 +1,16 @@
 {
   "last_updated": "2026-06-22",
-  "total_leads": 11314,
+  "total_leads": 11321,
   "yesterday_leads": 0,
-  "wtd_leads": 0,
-  "mtd_leads": 52,
+  "wtd_leads": 7,
+  "mtd_leads": 59,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
     "Wix Arena": 1075,
     "WIX Marketplace": 862,
     "Cold Call": 806,
-    "Thumbtack": 687,
+    "Thumbtack": 694,
     "Meta Ads": 535,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
@@ -89,9 +89,9 @@
     "Existing Customer": 1
   },
   "by_status": {
-    "Attempted to Contact": 3532,
-    "Not Contacted": 3286,
-    "Lost Lead": 1797,
+    "Attempted to Contact": 3531,
+    "Not Contacted": 3293,
+    "Lost Lead": 1798,
     "COLD": 1119,
     "Junk Lead": 614,
     "Contacted": 333,
@@ -132,9 +132,44 @@
     2,
     0,
     0,
-    0
+    7
   ],
   "leads": [
+    {
+      "created_time": "2026-06-22T19:32:43+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-06-22T16:17:49+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-06-22T13:38:00+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-06-22T13:36:59+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-06-22T13:35:54+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-06-22T13:34:16+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-06-22T13:33:10+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-06-19T13:47:26+00:00",
       "lead_source": "External Referral",
@@ -2543,7 +2578,7 @@
     {
       "created_time": "2026-01-06T15:44:31+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Attempted to Contact"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-01-05T21:02:31+00:00",
