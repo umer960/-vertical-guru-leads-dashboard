@@ -90,13 +90,13 @@
   },
   "by_status": {
     "Attempted to Contact": 3531,
-    "Not Contacted": 3293,
+    "Not Contacted": 3292,
     "Lost Lead": 1798,
     "COLD": 1119,
     "Junk Lead": 614,
     "Contacted": 333,
     "WARM": 227,
-    "MEETING SET": 220,
+    "MEETING SET": 221,
     "Contact in Future": 129,
     "HOT": 46,
     "Not Qualified": 9,
@@ -168,7 +168,7 @@
     {
       "created_time": "2026-06-22T13:33:10+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "MEETING SET"
     },
     {
       "created_time": "2026-06-19T13:47:26+00:00",
