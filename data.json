@@ -93,10 +93,10 @@
     "Not Contacted": 3296,
     "Lost Lead": 1798,
     "COLD": 1119,
-    "Junk Lead": 615,
+    "Junk Lead": 616,
     "Contacted": 333,
     "WARM": 228,
-    "MEETING SET": 221,
+    "MEETING SET": 220,
     "Contact in Future": 129,
     "HOT": 46,
     "Not Qualified": 9,
@@ -1098,7 +1098,7 @@
     {
       "created_time": "2026-04-20T14:35:19+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "MEETING SET"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-04-20T14:30:59+00:00",
