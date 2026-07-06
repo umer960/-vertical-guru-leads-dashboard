@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-07-05",
+  "last_updated": "2026-07-06",
   "total_leads": 11338,
   "yesterday_leads": 0,
-  "wtd_leads": 11,
+  "wtd_leads": 0,
   "mtd_leads": 5,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
@@ -103,7 +103,6 @@
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    1,
     0,
     7,
     1,
@@ -131,6 +130,7 @@
     3,
     1,
     1,
+    0,
     0,
     0
   ],
