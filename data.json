@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-07-08",
-  "total_leads": 11356,
-  "yesterday_leads": 2,
-  "wtd_leads": 18,
-  "mtd_leads": 23,
+  "last_updated": "2026-07-09",
+  "total_leads": 11358,
+  "yesterday_leads": 8,
+  "wtd_leads": 20,
+  "mtd_leads": 25,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -11,7 +11,7 @@
     "WIX Marketplace": 862,
     "Cold Call": 806,
     "Thumbtack": 716,
-    "Meta Ads": 536,
+    "Meta Ads": 538,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
     "RocketReach": 307,
@@ -90,7 +90,7 @@
   },
   "by_status": {
     "Attempted to Contact": 3532,
-    "Not Contacted": 3314,
+    "Not Contacted": 3316,
     "Lost Lead": 1801,
     "COLD": 1119,
     "Junk Lead": 622,
@@ -103,7 +103,6 @@
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    1,
     0,
     2,
     5,
@@ -132,7 +131,8 @@
     0,
     10,
     2,
-    6
+    8,
+    0
   ],
   "leads": [
     {
@@ -161,6 +161,11 @@
       "lead_status": "Not Contacted"
     },
     {
+      "created_time": "2026-07-08T21:06:41+00:00",
+      "lead_source": "Meta Ads",
+      "lead_status": "Not Contacted"
+    },
+    {
       "created_time": "2026-07-08T13:02:59+00:00",
       "lead_source": "Vertical Guru",
       "lead_status": "Not Contacted"
@@ -168,6 +173,11 @@
     {
       "created_time": "2026-07-07T16:03:04+00:00",
       "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-07-08T21:40:37+00:00",
+      "lead_source": "Meta Ads",
       "lead_status": "Not Contacted"
     },
     {
