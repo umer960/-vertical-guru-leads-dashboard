@@ -11,7 +11,7 @@
     "WIX Marketplace": 862,
     "Cold Call": 806,
     "Thumbtack": 714,
-    "Meta Ads": 543,
+    "Meta Ads": 544,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
     "RocketReach": 307,
@@ -33,7 +33,7 @@
     "Chat": 38,
     "Wix Leads": 38,
     "GoogleFREE WEBSITE QUOTE Form": 37,
-    "Vertical Guru": 31,
+    "Vertical Guru": 30,
     "Direct Website Submission": 29,
     "Cold": 26,
     "GoogleREACH OUT TO US Form": 22,
@@ -130,11 +130,16 @@
     0,
     10,
     2,
-    7,
     6,
-    3
+    6,
+    4
   ],
   "leads": [
+    {
+      "created_time": "2026-07-10T15:41:09+00:00",
+      "lead_source": "Meta Ads",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-07-10T12:38:56+00:00",
       "lead_source": "Meta Ads",
@@ -203,11 +208,6 @@
     {
       "created_time": "2026-07-09T17:27:46+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Not Contacted"
-    },
-    {
-      "created_time": "2026-07-08T13:02:59+00:00",
-      "lead_source": "Vertical Guru",
       "lead_status": "Not Contacted"
     },
     {
