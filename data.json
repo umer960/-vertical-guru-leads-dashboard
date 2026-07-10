@@ -1,9 +1,9 @@
 {
   "last_updated": "2026-07-10",
-  "total_leads": 11364,
+  "total_leads": 11365,
   "yesterday_leads": 6,
-  "wtd_leads": 27,
-  "mtd_leads": 32,
+  "wtd_leads": 28,
+  "mtd_leads": 33,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -11,7 +11,7 @@
     "WIX Marketplace": 862,
     "Cold Call": 806,
     "Thumbtack": 714,
-    "Meta Ads": 542,
+    "Meta Ads": 543,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
     "RocketReach": 307,
@@ -93,7 +93,7 @@
     "Not Contacted": 3321,
     "Lost Lead": 1801,
     "COLD": 1119,
-    "Junk Lead": 623,
+    "Junk Lead": 624,
     "Contacted": 333,
     "WARM": 228,
     "MEETING SET": 221,
@@ -132,13 +132,18 @@
     2,
     7,
     6,
-    2
+    3
   ],
   "leads": [
     {
-      "created_time": "2026-07-10T08:23:00+00:00",
+      "created_time": "2026-07-10T12:38:56+00:00",
       "lead_source": "Meta Ads",
       "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-07-10T08:23:00+00:00",
+      "lead_source": "Meta Ads",
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-10T04:42:30+00:00",
