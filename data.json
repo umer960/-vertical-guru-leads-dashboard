@@ -1,9 +1,9 @@
 {
   "last_updated": "2026-07-16",
-  "total_leads": 11392,
+  "total_leads": 11396,
   "yesterday_leads": 3,
-  "wtd_leads": 22,
-  "mtd_leads": 60,
+  "wtd_leads": 26,
+  "mtd_leads": 64,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -19,7 +19,7 @@
     "Networking / Conference": 161,
     "Facebook Ads": 140,
     "Event": 124,
-    "Everything Bergen Advertise": 102,
+    "Everything Bergen Advertise": 103,
     "External Referral": 94,
     "Google Maps": 83,
     "WebSite Visit": 79,
@@ -30,10 +30,10 @@
     "Instagram": 50,
     "Everything Bergen Member SignUp": 46,
     "Zoom Info": 42,
+    "Vertical Guru": 39,
     "Chat": 38,
     "Wix Leads": 38,
     "GoogleFREE WEBSITE QUOTE Form": 37,
-    "Vertical Guru": 36,
     "Direct Website Submission": 29,
     "Cold": 26,
     "GoogleREACH OUT TO US Form": 22,
@@ -90,10 +90,10 @@
   },
   "by_status": {
     "Attempted to Contact": 3532,
-    "Not Contacted": 3341,
+    "Not Contacted": 3343,
     "Lost Lead": 1802,
     "COLD": 1119,
-    "Junk Lead": 630,
+    "Junk Lead": 632,
     "Contacted": 333,
     "WARM": 228,
     "MEETING SET": 221,
@@ -132,12 +132,32 @@
     12,
     7,
     3,
-    0
+    4
   ],
   "leads": [
     {
       "created_time": "2026-07-15T23:00:11+00:00",
       "lead_source": "Meta Ads",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-07-16T15:47:44+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-07-16T15:45:33+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-07-16T15:43:05+00:00",
+      "lead_source": "Everything Bergen Advertise",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-07-16T15:40:21+00:00",
+      "lead_source": "Vertical Guru",
       "lead_status": "Not Contacted"
     },
     {
@@ -268,7 +288,7 @@
     {
       "created_time": "2026-07-12T20:15:24+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-11T14:18:16+00:00",
@@ -313,7 +333,7 @@
     {
       "created_time": "2026-07-08T18:44:32+00:00",
       "lead_source": "Everything Bergen Advertise",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-08T17:08:20+00:00",
