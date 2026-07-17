@@ -90,10 +90,10 @@
   },
   "by_status": {
     "Attempted to Contact": 3532,
-    "Not Contacted": 3345,
+    "Not Contacted": 3339,
     "Lost Lead": 1803,
     "COLD": 1119,
-    "Junk Lead": 632,
+    "Junk Lead": 638,
     "Contacted": 333,
     "WARM": 228,
     "MEETING SET": 221,
@@ -163,7 +163,7 @@
     {
       "created_time": "2026-07-16T15:45:33+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Attempted to Contact"
     },
     {
       "created_time": "2026-07-16T15:43:05+00:00",
@@ -173,7 +173,7 @@
     {
       "created_time": "2026-07-16T15:40:21+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-15T17:24:12+00:00",
@@ -198,7 +198,7 @@
     {
       "created_time": "2026-07-14T21:02:01+00:00",
       "lead_source": "Instagram",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-14T18:04:24+00:00",
@@ -243,7 +243,7 @@
     {
       "created_time": "2026-07-13T14:47:15+00:00",
       "lead_source": "Everything Bergen Advertise",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-13T14:45:39+00:00",
@@ -358,12 +358,12 @@
     {
       "created_time": "2026-07-08T13:47:57+00:00",
       "lead_source": "Facebook",
-      "lead_status": "Attempted to Contact"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-08T18:34:20+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-08T21:06:41+00:00",
@@ -373,7 +373,7 @@
     {
       "created_time": "2026-07-09T16:36:40+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-09T17:27:46+00:00",
