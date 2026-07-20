@@ -1,9 +1,9 @@
 {
   "last_updated": "2026-07-20",
-  "total_leads": 11406,
+  "total_leads": 11408,
   "yesterday_leads": 5,
-  "wtd_leads": 0,
-  "mtd_leads": 74,
+  "wtd_leads": 2,
+  "mtd_leads": 76,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -29,8 +29,8 @@
     "FacebookFREE WEBSITE QUOTE Form": 59,
     "Instagram": 51,
     "Everything Bergen Member SignUp": 46,
+    "Vertical Guru": 43,
     "Zoom Info": 42,
-    "Vertical Guru": 41,
     "Chat": 38,
     "Wix Leads": 38,
     "GoogleFREE WEBSITE QUOTE Form": 37,
@@ -90,10 +90,10 @@
   },
   "by_status": {
     "Attempted to Contact": 3532,
-    "Not Contacted": 3346,
+    "Not Contacted": 3347,
     "Lost Lead": 1803,
     "COLD": 1119,
-    "Junk Lead": 638,
+    "Junk Lead": 639,
     "Contacted": 333,
     "WARM": 228,
     "MEETING SET": 221,
@@ -132,9 +132,19 @@
     3,
     2,
     5,
-    0
+    2
   ],
   "leads": [
+    {
+      "created_time": "2026-07-20T12:15:25+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Junk Lead"
+    },
+    {
+      "created_time": "2026-07-20T12:14:27+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-07-19T14:01:08+00:00",
       "lead_source": "Meta Ads",
