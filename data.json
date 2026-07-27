@@ -90,10 +90,10 @@
   },
   "by_status": {
     "Attempted to Contact": 3532,
-    "Not Contacted": 3385,
+    "Not Contacted": 3383,
     "Lost Lead": 1803,
     "COLD": 1119,
-    "Junk Lead": 644,
+    "Junk Lead": 646,
     "Contacted": 334,
     "WARM": 229,
     "MEETING SET": 221,
@@ -253,7 +253,7 @@
     {
       "created_time": "2026-07-22T13:45:53+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-22T13:43:28+00:00",
@@ -488,7 +488,7 @@
     {
       "created_time": "2026-07-14T02:12:57+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-13T18:18:31+00:00",
