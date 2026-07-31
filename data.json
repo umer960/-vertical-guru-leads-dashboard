@@ -1,9 +1,9 @@
 {
   "last_updated": "2026-07-31",
-  "total_leads": 11472,
+  "total_leads": 11475,
   "yesterday_leads": 6,
-  "wtd_leads": 27,
-  "mtd_leads": 140,
+  "wtd_leads": 30,
+  "mtd_leads": 143,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -26,8 +26,8 @@
     "Unknown": 77,
     "Google": 74,
     "Employee Referral": 68,
+    "Vertical Guru": 61,
     "FacebookFREE WEBSITE QUOTE Form": 59,
-    "Vertical Guru": 58,
     "Instagram": 51,
     "Everything Bergen Member SignUp": 46,
     "Zoom Info": 42,
@@ -93,10 +93,10 @@
     "Not Contacted": 3397,
     "Lost Lead": 1803,
     "COLD": 1119,
-    "Junk Lead": 651,
+    "Junk Lead": 652,
     "Contacted": 334,
-    "WARM": 229,
-    "MEETING SET": 221,
+    "WARM": 230,
+    "MEETING SET": 222,
     "Contact in Future": 129,
     "HOT": 46,
     "Not Qualified": 9,
@@ -132,9 +132,24 @@
     7,
     5,
     6,
-    1
+    4
   ],
   "leads": [
+    {
+      "created_time": "2026-07-31T14:45:17+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-07-31T14:40:45+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-07-31T14:38:34+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-07-30T14:25:33+00:00",
       "lead_source": "Thumbtack",
@@ -153,7 +168,7 @@
     {
       "created_time": "2026-07-30T13:48:17+00:00",
       "lead_source": "Facebook",
-      "lead_status": "Not Contacted"
+      "lead_status": "WARM"
     },
     {
       "created_time": "2026-07-30T13:40:03+00:00",
@@ -243,7 +258,7 @@
     {
       "created_time": "2026-07-27T14:34:07+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "MEETING SET"
     },
     {
       "created_time": "2026-07-27T14:31:25+00:00",
@@ -318,7 +333,7 @@
     {
       "created_time": "2026-07-23T07:25:52+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-24T03:12:01+00:00",
