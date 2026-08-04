@@ -1,16 +1,16 @@
 {
   "last_updated": "2026-08-04",
-  "total_leads": 11491,
+  "total_leads": 11492,
   "yesterday_leads": 8,
-  "wtd_leads": 10,
-  "mtd_leads": 16,
+  "wtd_leads": 12,
+  "mtd_leads": 18,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
     "Wix Arena": 1075,
     "WIX Marketplace": 862,
     "Cold Call": 806,
-    "Thumbtack": 743,
+    "Thumbtack": 744,
     "Meta Ads": 587,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
@@ -90,11 +90,11 @@
   },
   "by_status": {
     "Attempted to Contact": 3532,
-    "Not Contacted": 3407,
-    "Lost Lead": 1803,
+    "Not Contacted": 3399,
+    "Lost Lead": 1808,
     "COLD": 1119,
-    "Junk Lead": 657,
-    "Contacted": 334,
+    "Junk Lead": 652,
+    "Contacted": 343,
     "WARM": 230,
     "MEETING SET": 223,
     "Contact in Future": 129,
@@ -125,16 +125,26 @@
     0,
     1,
     8,
-    7,
+    6,
     5,
     6,
     4,
     3,
     3,
     8,
-    2
+    4
   ],
   "leads": [
+    {
+      "created_time": "2026-08-04T16:12:33+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-04T15:01:47+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Contacted"
+    },
     {
       "created_time": "2026-08-04T12:42:03+00:00",
       "lead_source": "Meta Ads",
@@ -213,7 +223,7 @@
     {
       "created_time": "2026-07-31T14:40:45+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Contacted"
     },
     {
       "created_time": "2026-07-31T14:38:34+00:00",
@@ -288,7 +298,7 @@
     {
       "created_time": "2026-07-29T16:13:00+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Junk Lead"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-07-29T16:10:24+00:00",
@@ -316,11 +326,6 @@
       "lead_status": "Not Contacted"
     },
     {
-      "created_time": "2026-07-28T17:03:56+00:00",
-      "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
-    },
-    {
       "created_time": "2026-07-27T14:38:47+00:00",
       "lead_source": "Thumbtack",
       "lead_status": "Not Contacted"
@@ -343,7 +348,7 @@
     {
       "created_time": "2026-07-27T14:31:25+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Contacted"
     },
     {
       "created_time": "2026-07-27T14:29:35+00:00",
@@ -383,7 +388,7 @@
     {
       "created_time": "2026-07-23T17:20:21+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Contacted"
     },
     {
       "created_time": "2026-07-23T16:37:17+00:00",
@@ -473,7 +478,7 @@
     {
       "created_time": "2026-07-20T15:44:23+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Contacted"
     },
     {
       "created_time": "2026-07-20T15:41:33+00:00",
@@ -553,7 +558,7 @@
     {
       "created_time": "2026-07-20T12:15:25+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Junk Lead"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-07-20T12:14:27+00:00",
@@ -658,7 +663,7 @@
     {
       "created_time": "2026-07-14T21:02:01+00:00",
       "lead_source": "Instagram",
-      "lead_status": "Junk Lead"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-07-14T18:04:24+00:00",
@@ -688,7 +693,7 @@
     {
       "created_time": "2026-07-13T17:35:17+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Contacted"
     },
     {
       "created_time": "2026-07-13T14:50:10+00:00",
@@ -753,7 +758,7 @@
     {
       "created_time": "2026-07-12T04:18:11+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Not Contacted"
+      "lead_status": "Contacted"
     },
     {
       "created_time": "2026-07-10T15:41:09+00:00",
@@ -783,7 +788,7 @@
     {
       "created_time": "2026-07-10T04:42:30+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Junk Lead"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-07-09T18:44:59+00:00",
@@ -813,7 +818,7 @@
     {
       "created_time": "2026-07-08T17:08:20+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Contacted"
     },
     {
       "created_time": "2026-07-08T13:47:57+00:00",
@@ -873,7 +878,7 @@
     {
       "created_time": "2026-07-06T13:33:45+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Contacted"
     },
     {
       "created_time": "2026-07-06T13:29:00+00:00",
@@ -883,7 +888,7 @@
     {
       "created_time": "2026-07-06T13:23:35+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Junk Lead"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-07-06T13:20:11+00:00",
