@@ -1,21 +1,21 @@
 {
   "last_updated": "2026-08-05",
-  "total_leads": 11492,
+  "total_leads": 11502,
   "yesterday_leads": 4,
-  "wtd_leads": 12,
-  "mtd_leads": 18,
+  "wtd_leads": 22,
+  "mtd_leads": 28,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
     "Wix Arena": 1075,
     "WIX Marketplace": 862,
     "Cold Call": 806,
-    "Thumbtack": 744,
-    "Meta Ads": 587,
+    "Thumbtack": 751,
+    "Meta Ads": 588,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
     "RocketReach": 307,
-    "Facebook": 293,
+    "Facebook": 294,
     "Networking / Conference": 161,
     "Facebook Ads": 140,
     "Event": 124,
@@ -26,7 +26,7 @@
     "Unknown": 77,
     "Google": 74,
     "Employee Referral": 68,
-    "Vertical Guru": 64,
+    "Vertical Guru": 65,
     "FacebookFREE WEBSITE QUOTE Form": 59,
     "Instagram": 51,
     "Everything Bergen Member SignUp": 46,
@@ -90,10 +90,10 @@
   },
   "by_status": {
     "Attempted to Contact": 3532,
-    "Not Contacted": 3399,
+    "Not Contacted": 3408,
     "Lost Lead": 1808,
     "COLD": 1119,
-    "Junk Lead": 652,
+    "Junk Lead": 653,
     "Contacted": 343,
     "WARM": 230,
     "MEETING SET": 223,
@@ -132,9 +132,59 @@
     3,
     8,
     4,
-    0
+    10
   ],
   "leads": [
+    {
+      "created_time": "2026-08-05T14:11:23+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-05T14:01:02+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-05T13:51:57+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-05T13:50:59+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-05T13:49:46+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-05T13:43:50+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-05T13:39:53+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-05T13:25:01+00:00",
+      "lead_source": "Facebook",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-05T13:23:32+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Junk Lead"
+    },
+    {
+      "created_time": "2026-08-05T12:08:55+00:00",
+      "lead_source": "Meta Ads",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-08-04T16:12:33+00:00",
       "lead_source": "Thumbtack",
