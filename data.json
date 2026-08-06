@@ -1,16 +1,16 @@
 {
-  "last_updated": "2026-08-05",
-  "total_leads": 11513,
-  "yesterday_leads": 4,
-  "wtd_leads": 33,
-  "mtd_leads": 39,
+  "last_updated": "2026-08-06",
+  "total_leads": 11515,
+  "yesterday_leads": 23,
+  "wtd_leads": 35,
+  "mtd_leads": 41,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
     "Wix Arena": 1075,
     "WIX Marketplace": 862,
     "Cold Call": 806,
-    "Thumbtack": 753,
+    "Thumbtack": 754,
     "Meta Ads": 588,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
@@ -27,8 +27,8 @@
     "Google": 74,
     "Employee Referral": 68,
     "Vertical Guru": 65,
+    "Instagram": 59,
     "FacebookFREE WEBSITE QUOTE Form": 59,
-    "Instagram": 58,
     "Everything Bergen Member SignUp": 46,
     "Zoom Info": 42,
     "Chat": 38,
@@ -90,7 +90,7 @@
   },
   "by_status": {
     "Attempted to Contact": 3533,
-    "Not Contacted": 3415,
+    "Not Contacted": 3417,
     "Lost Lead": 1808,
     "COLD": 1119,
     "Junk Lead": 655,
@@ -103,7 +103,6 @@
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    2,
     6,
     6,
     4,
@@ -132,9 +131,20 @@
     3,
     8,
     4,
-    21
+    23,
+    0
   ],
   "leads": [
+    {
+      "created_time": "2026-08-05T21:23:17+00:00",
+      "lead_source": "Instagram",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-05T20:12:18+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-08-05T18:23:22+00:00",
       "lead_source": "Instagram",
