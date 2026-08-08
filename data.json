@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-08-07",
-  "total_leads": 11519,
-  "yesterday_leads": 3,
-  "wtd_leads": 39,
-  "mtd_leads": 45,
+  "last_updated": "2026-08-08",
+  "total_leads": 11522,
+  "yesterday_leads": 4,
+  "wtd_leads": 42,
+  "mtd_leads": 48,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -11,7 +11,7 @@
     "WIX Marketplace": 862,
     "Cold Call": 806,
     "Thumbtack": 755,
-    "Meta Ads": 590,
+    "Meta Ads": 592,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
     "RocketReach": 307,
@@ -19,7 +19,7 @@
     "Networking / Conference": 161,
     "Facebook Ads": 140,
     "Event": 124,
-    "Everything Bergen Advertise": 112,
+    "Everything Bergen Advertise": 113,
     "External Referral": 94,
     "Google Maps": 83,
     "WebSite Visit": 79,
@@ -90,10 +90,10 @@
   },
   "by_status": {
     "Attempted to Contact": 3533,
-    "Not Contacted": 3419,
+    "Not Contacted": 3421,
     "Lost Lead": 1808,
     "COLD": 1119,
-    "Junk Lead": 656,
+    "Junk Lead": 657,
     "Contacted": 344,
     "WARM": 230,
     "MEETING SET": 224,
@@ -103,7 +103,6 @@
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    6,
     4,
     2,
     3,
@@ -132,9 +131,25 @@
     4,
     23,
     3,
-    1
+    4,
+    0
   ],
   "leads": [
+    {
+      "created_time": "2026-08-07T19:22:10+00:00",
+      "lead_source": "Everything Bergen Advertise",
+      "lead_status": "Junk Lead"
+    },
+    {
+      "created_time": "2026-08-07T22:22:00+00:00",
+      "lead_source": "Meta Ads",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-07T19:17:50+00:00",
+      "lead_source": "Meta Ads",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-08-07T14:28:46+00:00",
       "lead_source": "Thumbtack",
