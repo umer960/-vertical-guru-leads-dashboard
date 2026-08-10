@@ -1,8 +1,8 @@
 {
   "last_updated": "2026-08-10",
   "total_leads": 11531,
-  "yesterday_leads": 6,
-  "wtd_leads": 3,
+  "yesterday_leads": 5,
+  "wtd_leads": 4,
   "mtd_leads": 57,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
@@ -15,7 +15,7 @@
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
     "RocketReach": 307,
-    "Facebook": 296,
+    "Facebook": 297,
     "Networking / Conference": 161,
     "Facebook Ads": 140,
     "Event": 124,
@@ -34,7 +34,7 @@
     "Chat": 38,
     "Wix Leads": 38,
     "GoogleFREE WEBSITE QUOTE Form": 37,
-    "Direct Website Submission": 30,
+    "Direct Website Submission": 29,
     "Cold": 26,
     "GoogleREACH OUT TO US Form": 22,
     "Referral": 19,
@@ -90,13 +90,13 @@
   },
   "by_status": {
     "Attempted to Contact": 3533,
-    "Not Contacted": 3430,
-    "Lost Lead": 1808,
+    "Not Contacted": 3428,
+    "Lost Lead": 1809,
     "COLD": 1119,
     "Junk Lead": 657,
     "Contacted": 344,
     "WARM": 230,
-    "MEETING SET": 224,
+    "MEETING SET": 225,
     "Contact in Future": 129,
     "HOT": 46,
     "Not Qualified": 9,
@@ -131,13 +131,13 @@
     3,
     4,
     0,
-    6,
-    3
+    5,
+    4
   ],
   "leads": [
     {
-      "created_time": "2026-08-09T14:47:37+00:00",
-      "lead_source": "Direct Website Submission",
+      "created_time": "2026-08-10T17:01:39+00:00",
+      "lead_source": "Facebook",
       "lead_status": "Not Contacted"
     },
     {
@@ -463,7 +463,7 @@
     {
       "created_time": "2026-07-31T07:47:20+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Not Contacted"
+      "lead_status": "MEETING SET"
     },
     {
       "created_time": "2026-07-28T19:26:31+00:00",
@@ -573,7 +573,7 @@
     {
       "created_time": "2026-07-24T18:27:46+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-07-24T14:20:49+00:00",
