@@ -1,9 +1,9 @@
 {
   "last_updated": "2026-08-19",
-  "total_leads": 11562,
+  "total_leads": 11563,
   "yesterday_leads": 4,
-  "wtd_leads": 14,
-  "mtd_leads": 88,
+  "wtd_leads": 15,
+  "mtd_leads": 89,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -19,7 +19,7 @@
     "Networking / Conference": 161,
     "Facebook Ads": 140,
     "Event": 124,
-    "Everything Bergen Advertise": 113,
+    "Everything Bergen Advertise": 114,
     "External Referral": 94,
     "Google Maps": 83,
     "WebSite Visit": 79,
@@ -90,7 +90,7 @@
   },
   "by_status": {
     "Attempted to Contact": 3533,
-    "Not Contacted": 3434,
+    "Not Contacted": 3435,
     "Lost Lead": 1811,
     "COLD": 1119,
     "Junk Lead": 677,
@@ -132,9 +132,14 @@
     0,
     10,
     4,
-    0
+    1
   ],
   "leads": [
+    {
+      "created_time": "2026-08-19T12:47:14+00:00",
+      "lead_source": "Everything Bergen Advertise",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-08-18T15:13:49+00:00",
       "lead_source": "Thumbtack",
