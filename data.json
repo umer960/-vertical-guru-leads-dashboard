@@ -1,20 +1,20 @@
 {
   "last_updated": "2026-08-26",
-  "total_leads": 11612,
+  "total_leads": 11617,
   "yesterday_leads": 7,
-  "wtd_leads": 18,
-  "mtd_leads": 138,
+  "wtd_leads": 24,
+  "mtd_leads": 143,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
     "Wix Arena": 1075,
     "WIX Marketplace": 862,
     "Cold Call": 806,
-    "Thumbtack": 783,
+    "Thumbtack": 786,
     "Meta Ads": 596,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
-    "Facebook": 313,
+    "Facebook": 314,
     "RocketReach": 307,
     "Networking / Conference": 161,
     "Facebook Ads": 140,
@@ -22,7 +22,7 @@
     "Event": 124,
     "External Referral": 94,
     "Google Maps": 83,
-    "Vertical Guru": 79,
+    "Vertical Guru": 80,
     "WebSite Visit": 79,
     "Unknown": 77,
     "Google": 74,
@@ -90,11 +90,11 @@
   },
   "by_status": {
     "Attempted to Contact": 3533,
-    "Not Contacted": 3468,
+    "Not Contacted": 3471,
     "Lost Lead": 1811,
     "COLD": 1120,
-    "Junk Lead": 686,
-    "Contacted": 345,
+    "Junk Lead": 687,
+    "Contacted": 346,
     "WARM": 235,
     "MEETING SET": 227,
     "Contact in Future": 129,
@@ -125,20 +125,50 @@
     0,
     10,
     4,
-    22,
+    21,
     7,
     4,
     0,
     0,
     11,
     7,
-    0
+    6
   ],
   "leads": [
     {
-      "created_time": "2026-08-25T16:52:26+00:00",
+      "created_time": "2026-08-26T18:48:07+00:00",
       "lead_source": "Thumbtack",
       "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-26T14:10:44+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-26T14:09:41+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-26T14:08:34+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-26T13:44:49+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-26T13:40:08+00:00",
+      "lead_source": "Facebook",
+      "lead_status": "Contacted"
+    },
+    {
+      "created_time": "2026-08-25T16:52:26+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "WARM"
     },
     {
       "created_time": "2026-08-25T16:00:35+00:00",
@@ -233,7 +263,7 @@
     {
       "created_time": "2026-08-21T13:54:06+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-08-21T15:07:33+00:00",
@@ -294,11 +324,6 @@
       "created_time": "2026-08-19T16:59:54+00:00",
       "lead_source": "Thumbtack",
       "lead_status": "MEETING SET"
-    },
-    {
-      "created_time": "2026-08-19T16:57:50+00:00",
-      "lead_source": "Thumbtack",
-      "lead_status": "WARM"
     },
     {
       "created_time": "2026-08-19T15:22:55+00:00",
