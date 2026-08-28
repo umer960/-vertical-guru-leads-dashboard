@@ -1,9 +1,9 @@
 {
   "last_updated": "2026-08-28",
-  "total_leads": 11623,
+  "total_leads": 11624,
   "yesterday_leads": 5,
-  "wtd_leads": 30,
-  "mtd_leads": 149,
+  "wtd_leads": 32,
+  "mtd_leads": 150,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -14,7 +14,7 @@
     "Meta Ads": 596,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
-    "Facebook": 315,
+    "Facebook": 316,
     "RocketReach": 307,
     "Networking / Conference": 161,
     "Everything Bergen Advertise": 142,
@@ -90,15 +90,15 @@
   },
   "by_status": {
     "Attempted to Contact": 3533,
-    "Not Contacted": 3477,
+    "Not Contacted": 3473,
     "Lost Lead": 1811,
-    "COLD": 1120,
-    "Junk Lead": 687,
+    "COLD": 1121,
+    "Junk Lead": 690,
     "Contacted": 346,
     "WARM": 235,
     "MEETING SET": 227,
     "Contact in Future": 129,
-    "HOT": 47,
+    "HOT": 48,
     "Not Qualified": 9,
     "Pre-Qualified": 2
   },
@@ -123,7 +123,7 @@
     0,
     10,
     4,
-    21,
+    20,
     7,
     4,
     0,
@@ -132,13 +132,23 @@
     7,
     6,
     5,
-    1
+    3
   ],
   "leads": [
     {
-      "created_time": "2026-08-27T19:45:53+00:00",
+      "created_time": "2026-08-28T14:47:12+00:00",
       "lead_source": "Everything Bergen Advertise",
       "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-28T13:44:44+00:00",
+      "lead_source": "Facebook",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-08-27T19:45:53+00:00",
+      "lead_source": "Everything Bergen Advertise",
+      "lead_status": "COLD"
     },
     {
       "created_time": "2026-08-27T19:44:13+00:00",
@@ -328,7 +338,7 @@
     {
       "created_time": "2026-08-20T19:14:15+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-08-20T19:11:32+00:00",
@@ -421,11 +431,6 @@
       "lead_status": "Not Contacted"
     },
     {
-      "created_time": "2026-08-19T15:15:56+00:00",
-      "lead_source": "Everything Bergen Advertise",
-      "lead_status": "Not Contacted"
-    },
-    {
       "created_time": "2026-08-19T15:14:58+00:00",
       "lead_source": "Everything Bergen Advertise",
       "lead_status": "Not Contacted"
@@ -433,7 +438,7 @@
     {
       "created_time": "2026-08-19T15:14:25+00:00",
       "lead_source": "Everything Bergen Advertise",
-      "lead_status": "Not Contacted"
+      "lead_status": "HOT"
     },
     {
       "created_time": "2026-08-19T15:14:00+00:00",
@@ -608,7 +613,7 @@
     {
       "created_time": "2026-08-09T14:44:06+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-08-09T14:43:21+00:00",
@@ -618,7 +623,7 @@
     {
       "created_time": "2026-08-09T14:40:15+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-08-07T19:22:10+00:00",
