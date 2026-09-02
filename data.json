@@ -1,9 +1,9 @@
 {
   "last_updated": "2026-09-02",
-  "total_leads": 11647,
+  "total_leads": 11655,
   "yesterday_leads": 13,
-  "wtd_leads": 23,
-  "mtd_leads": 13,
+  "wtd_leads": 31,
+  "mtd_leads": 21,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -14,14 +14,14 @@
     "Meta Ads": 596,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
-    "Facebook": 333,
+    "Facebook": 335,
     "RocketReach": 307,
-    "Networking / Conference": 161,
+    "Networking / Conference": 165,
     "Everything Bergen Advertise": 143,
     "Facebook Ads": 140,
     "Event": 124,
     "External Referral": 94,
-    "Vertical Guru": 83,
+    "Vertical Guru": 85,
     "Google Maps": 83,
     "WebSite Visit": 79,
     "Unknown": 77,
@@ -90,7 +90,7 @@
   },
   "by_status": {
     "Attempted to Contact": 3533,
-    "Not Contacted": 3489,
+    "Not Contacted": 3497,
     "Lost Lead": 1811,
     "COLD": 1121,
     "Junk Lead": 693,
@@ -132,9 +132,29 @@
     0,
     10,
     13,
-    0
+    8
   ],
   "leads": [
+    {
+      "created_time": "2026-09-02T15:12:20+00:00",
+      "lead_source": "Networking / Conference",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-02T15:11:00+00:00",
+      "lead_source": "Networking / Conference",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-02T15:09:39+00:00",
+      "lead_source": "Networking / Conference",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-02T15:08:14+00:00",
+      "lead_source": "Networking / Conference",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-09-01T15:47:59+00:00",
       "lead_source": "Thumbtack",
@@ -159,6 +179,26 @@
       "created_time": "2026-09-01T13:13:48+00:00",
       "lead_source": "Facebook",
       "lead_status": "WARM"
+    },
+    {
+      "created_time": "2026-09-02T13:08:04+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-02T13:06:26+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-02T13:05:03+00:00",
+      "lead_source": "Facebook",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-02T13:04:03+00:00",
+      "lead_source": "Facebook",
+      "lead_status": "Not Contacted"
     },
     {
       "created_time": "2026-09-01T18:43:49+00:00",
