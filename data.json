@@ -1,9 +1,9 @@
 {
   "last_updated": "2026-09-03",
-  "total_leads": 11671,
+  "total_leads": 11672,
   "yesterday_leads": 20,
-  "wtd_leads": 47,
-  "mtd_leads": 37,
+  "wtd_leads": 48,
+  "mtd_leads": 38,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -20,7 +20,7 @@
     "Everything Bergen Advertise": 143,
     "Facebook Ads": 140,
     "Event": 124,
-    "External Referral": 94,
+    "External Referral": 95,
     "Vertical Guru": 86,
     "Google Maps": 83,
     "WebSite Visit": 79,
@@ -90,12 +90,12 @@
   },
   "by_status": {
     "Attempted to Contact": 3533,
-    "Not Contacted": 3509,
+    "Not Contacted": 3506,
     "Lost Lead": 1812,
     "COLD": 1121,
-    "Junk Lead": 694,
-    "Contacted": 346,
-    "WARM": 240,
+    "Junk Lead": 696,
+    "Contacted": 347,
+    "WARM": 241,
     "MEETING SET": 228,
     "Contact in Future": 129,
     "HOT": 48,
@@ -132,7 +132,7 @@
     10,
     13,
     20,
-    4
+    5
   ],
   "leads": [
     {
@@ -158,7 +158,7 @@
     {
       "created_time": "2026-09-02T23:07:34+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Contacted"
     },
     {
       "created_time": "2026-09-02T23:06:40+00:00",
@@ -188,7 +188,7 @@
     {
       "created_time": "2026-09-02T22:59:59+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-09-02T22:59:19+00:00",
@@ -201,6 +201,11 @@
       "lead_status": "Not Contacted"
     },
     {
+      "created_time": "2026-09-03T18:14:24+00:00",
+      "lead_source": "External Referral",
+      "lead_status": "WARM"
+    },
+    {
       "created_time": "2026-09-03T14:34:08+00:00",
       "lead_source": "Facebook",
       "lead_status": "Not Contacted"
@@ -208,7 +213,7 @@
     {
       "created_time": "2026-09-03T14:32:41+00:00",
       "lead_source": "Facebook",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-09-02T18:34:24+00:00",
