@@ -89,9 +89,9 @@
     "Existing Customer": 1
   },
   "by_status": {
-    "Not Contacted": 3548,
+    "Not Contacted": 3547,
     "Attempted to Contact": 3533,
-    "Lost Lead": 1814,
+    "Lost Lead": 1815,
     "COLD": 1120,
     "Junk Lead": 706,
     "Contacted": 349,
@@ -413,7 +413,7 @@
     {
       "created_time": "2026-09-07T13:36:02+00:00",
       "lead_source": "Facebook",
-      "lead_status": "Not Contacted"
+      "lead_status": "Lost Lead"
     },
     {
       "created_time": "2026-09-07T13:35:21+00:00",
