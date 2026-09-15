@@ -1,26 +1,26 @@
 {
   "last_updated": "2026-09-15",
-  "total_leads": 11729,
+  "total_leads": 11734,
   "yesterday_leads": 10,
-  "wtd_leads": 11,
-  "mtd_leads": 96,
+  "wtd_leads": 16,
+  "mtd_leads": 101,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
     "Wix Arena": 1075,
     "WIX Marketplace": 862,
-    "Thumbtack": 810,
+    "Thumbtack": 812,
     "Cold Call": 805,
     "Meta Ads": 598,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
-    "Facebook": 369,
+    "Facebook": 371,
     "RocketReach": 307,
     "Networking / Conference": 165,
     "Everything Bergen Advertise": 147,
     "Facebook Ads": 140,
     "Event": 124,
-    "Vertical Guru": 99,
+    "Vertical Guru": 100,
     "External Referral": 94,
     "Google Maps": 83,
     "WebSite Visit": 79,
@@ -93,9 +93,9 @@
     "Attempted to Contact": 3533,
     "Lost Lead": 1814,
     "COLD": 1120,
-    "Junk Lead": 702,
+    "Junk Lead": 706,
     "Contacted": 349,
-    "WARM": 245,
+    "WARM": 246,
     "MEETING SET": 229,
     "Contact in Future": 130,
     "HOT": 48,
@@ -132,9 +132,34 @@
     0,
     0,
     10,
-    1
+    6
   ],
   "leads": [
+    {
+      "created_time": "2026-09-15T13:54:34+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-15T13:39:25+00:00",
+      "lead_source": "Facebook",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-15T13:38:32+00:00",
+      "lead_source": "Facebook",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-15T15:58:52+00:00",
+      "lead_source": "Thumbtack",
+      "lead_status": "Not Contacted"
+    },
+    {
+      "created_time": "2026-09-15T13:04:58+00:00",
+      "lead_source": "Vertical Guru",
+      "lead_status": "WARM"
+    },
     {
       "created_time": "2026-09-15T00:39:33+00:00",
       "lead_source": "Everything Bergen Advertise",
@@ -168,7 +193,7 @@
     {
       "created_time": "2026-09-14T16:34:32+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-09-14T16:33:45+00:00",
@@ -213,7 +238,7 @@
     {
       "created_time": "2026-09-10T15:40:57+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-09-10T15:18:10+00:00",
@@ -223,7 +248,7 @@
     {
       "created_time": "2026-09-10T15:16:25+00:00",
       "lead_source": "Vertical Guru",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-09-10T15:15:41+00:00",
@@ -283,7 +308,7 @@
     {
       "created_time": "2026-09-08T13:44:50+00:00",
       "lead_source": "Thumbtack",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-09-08T13:43:21+00:00",
