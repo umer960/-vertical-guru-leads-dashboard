@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-09-14",
-  "total_leads": 11728,
-  "yesterday_leads": 0,
-  "wtd_leads": 10,
-  "mtd_leads": 95,
+  "last_updated": "2026-09-15",
+  "total_leads": 11729,
+  "yesterday_leads": 10,
+  "wtd_leads": 11,
+  "mtd_leads": 96,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -17,7 +17,7 @@
     "Facebook": 369,
     "RocketReach": 307,
     "Networking / Conference": 165,
-    "Everything Bergen Advertise": 146,
+    "Everything Bergen Advertise": 147,
     "Facebook Ads": 140,
     "Event": 124,
     "Vertical Guru": 99,
@@ -95,7 +95,7 @@
     "COLD": 1120,
     "Junk Lead": 702,
     "Contacted": 349,
-    "WARM": 244,
+    "WARM": 245,
     "MEETING SET": 229,
     "Contact in Future": 130,
     "HOT": 48,
@@ -103,7 +103,6 @@
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    0,
     10,
     4,
     20,
@@ -132,9 +131,15 @@
     4,
     0,
     0,
-    10
+    10,
+    1
   ],
   "leads": [
+    {
+      "created_time": "2026-09-15T00:39:33+00:00",
+      "lead_source": "Everything Bergen Advertise",
+      "lead_status": "Not Contacted"
+    },
     {
       "created_time": "2026-09-14T16:43:20+00:00",
       "lead_source": "Facebook",
@@ -158,7 +163,7 @@
     {
       "created_time": "2026-09-14T16:35:52+00:00",
       "lead_source": "Facebook",
-      "lead_status": "Not Contacted"
+      "lead_status": "WARM"
     },
     {
       "created_time": "2026-09-14T16:34:32+00:00",
