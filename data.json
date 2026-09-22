@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-09-21",
-  "total_leads": 11769,
-  "yesterday_leads": 0,
-  "wtd_leads": 5,
-  "mtd_leads": 136,
+  "last_updated": "2026-09-22",
+  "total_leads": 11770,
+  "yesterday_leads": 6,
+  "wtd_leads": 6,
+  "mtd_leads": 137,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -11,7 +11,7 @@
     "WIX Marketplace": 862,
     "Thumbtack": 828,
     "Cold Call": 805,
-    "Meta Ads": 610,
+    "Meta Ads": 611,
     "Everything Bergen Business Newsletter": 505,
     "Wix Marketplace": 456,
     "Facebook": 375,
@@ -99,12 +99,11 @@
     "MEETING SET": 229,
     "Contact in Future": 131,
     "HOT": 48,
-    "Unknown": 9,
+    "Unknown": 10,
     "Not Qualified": 9,
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    0,
     11,
     7,
     6,
@@ -133,9 +132,15 @@
     1,
     3,
     0,
-    5
+    6,
+    0
   ],
   "leads": [
+    {
+      "created_time": "2026-09-21T23:24:27+00:00",
+      "lead_source": "Meta Ads",
+      "lead_status": "Unknown"
+    },
     {
       "created_time": "2026-09-21T14:12:07+00:00",
       "lead_source": "Thumbtack",
