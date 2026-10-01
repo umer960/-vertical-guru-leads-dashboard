@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-09-30",
+  "last_updated": "2026-10-01",
   "total_leads": 11803,
   "yesterday_leads": 5,
   "wtd_leads": 13,
-  "mtd_leads": 170,
+  "mtd_leads": 0,
   "by_source": {
     "Everything Bergen Member Subscription": 2314,
     "ZoomInfo": 1829,
@@ -89,11 +89,11 @@
     "Existing Customer": 1
   },
   "by_status": {
-    "Not Contacted": 3561,
+    "Not Contacted": 3560,
     "Attempted to Contact": 3534,
     "Lost Lead": 1825,
     "COLD": 1120,
-    "Junk Lead": 720,
+    "Junk Lead": 721,
     "Contacted": 351,
     "WARM": 252,
     "MEETING SET": 228,
@@ -104,7 +104,6 @@
     "Pre-Qualified": 2
   },
   "sparkline_30d": [
-    13,
     19,
     3,
     5,
@@ -133,7 +132,8 @@
     2,
     3,
     5,
-    5
+    5,
+    0
   ],
   "leads": [
     {
@@ -1804,7 +1804,7 @@
     {
       "created_time": "2026-08-02T12:36:50+00:00",
       "lead_source": "Meta Ads",
-      "lead_status": "Not Contacted"
+      "lead_status": "Junk Lead"
     },
     {
       "created_time": "2026-07-30T18:28:05+00:00",
